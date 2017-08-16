@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/World 3/3-Hidden.unity
+  isLoaded: 1
+  isActive: 1
