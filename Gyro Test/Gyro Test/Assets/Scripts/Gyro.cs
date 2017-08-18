@@ -11,7 +11,7 @@ public class Gyro : MonoBehaviour
 {
     [Header("Components")]
     public Rigidbody rb;
-    public Transform level;
+    //public Transform level;
     [Space(5)]
 
     [Header("Variables")]
@@ -84,8 +84,8 @@ public class Gyro : MonoBehaviour
         if (!lt.gameEnded)
         {
             //This will reset the planes position, so the Y axis is straight (0), does add some "drag" to the game, either make this more smooth, or just use this somehow for movement
-            Quaternion target = Quaternion.Euler(level.rotation.x, 0, level.rotation.y);
-            level.rotation = Quaternion.Slerp(level.rotation, target, Time.deltaTime * smooth);
+            //Quaternion target = Quaternion.Euler(level.rotation.x, 0, level.rotation.y);
+            //level.rotation = Quaternion.Slerp(level.rotation, target, Time.deltaTime * smooth);
 
             switch (type)
             {
@@ -129,7 +129,7 @@ public class Gyro : MonoBehaviour
                     }
 
                     //Rotates the platform according to the gyroscope in the phone
-                    level.Rotate(initialOrientationX / tiltAngle, 0, initialOrientationY / tiltAngle);
+                    //level.Rotate(initialOrientationX / tiltAngle, 0, initialOrientationY / tiltAngle);
                     break;
             }
         }
