@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
 
-    int currentLevel = 1;
     public float timeLeft;
     string timeDisp;
     bool gameOver;
@@ -39,8 +38,6 @@ public class UI : MonoBehaviour
             //{
             //    GameOver();
             //}
-
-            GameObject.Find("CurrentLevel").GetComponent<Text>().text = currentLevel.ToString();
 
             GameObject.Find("Deaths").GetComponent<Text>().text = lt.deathCounter.ToString();
         }

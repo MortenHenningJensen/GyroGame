@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public Canvas worldOne;
     public Canvas worldTwo;
+    public Canvas worldThree;
     public Canvas worldSelect;
 
     // Use this for initialization
@@ -38,10 +39,19 @@ public class MainMenu : MonoBehaviour
         worldSelect.enabled = false;
     }
 
+    public void EnterWorldThree()
+    {
+        worldThree.enabled = true;
+
+        worldSelect.enabled = false;
+    }
+
+
     public void BackButton()
     {
         worldOne.enabled = false;
         worldTwo.enabled = false;
+        worldThree.enabled = false;
 
         worldSelect.enabled = true;
     }

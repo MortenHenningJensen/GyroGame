@@ -29,6 +29,8 @@ public class Plate : MonoBehaviour
     [SerializeField]
     private Material _matNormPlate;
     [SerializeField]
+    private Material _matNormSandPlate;
+    [SerializeField]
     private Material _matActPlateOff;
     [SerializeField]
     private Material _matActPlateOn;
@@ -191,6 +193,19 @@ public class Plate : MonoBehaviour
         }
     }
 
+    public Material MatNormSandPlate
+    {
+        get
+        {
+            return _matNormSandPlate;
+        }
+
+        set
+        {
+            _matNormSandPlate = value;
+        }
+    }
+
     #endregion
 
     // Use this for initialization
@@ -221,7 +236,17 @@ public class Plate : MonoBehaviour
         switch (TypeNumb)
         {
             case PlateType.NormalPlate:
-                CurrentMaterial = MatNormPlate; //Blue material..
+                switch (gm.gTheme)
+                {
+                    case GameTheme.Ice:
+                        CurrentMaterial = MatNormPlate; //Blue material..
+                        break;
+                    case GameTheme.Sand:
+                        CurrentMaterial = MatNormSandPlate; //Sand material..
+                        break;
+                    default:
+                        break;
+                }
                 gm.NormPlates.Add(go); //Adds the Gameobject to a list, which is used in the GameManager..
                 break;
             case PlateType.ActivationPlate:

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum TypeOfGame { Normal, RandomActivation, ListActivation }
+public enum GameTheme { Ice, Sand}
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     public Canvas gameEnd;
     public LevelTracker lt;
     public TypeOfGame tog;
+    public GameTheme gTheme;
     #endregion
 
     [SerializeField]
@@ -375,7 +377,7 @@ public class GameManager : MonoBehaviour
         //Kør metode på GameControl?
 
         Text endStatusText = GameObject.Find("Game Over").GetComponent<Text>();
-        endStatusText.text = "YOU ROLL";
+        endStatusText.text = "Nice job!";
 
         lt.gameEnded = true;
 
@@ -402,7 +404,7 @@ public class GameManager : MonoBehaviour
         }
 
         Text endStarsText = GameObject.Find("StarsEarned").GetComponent<Text>();
-        endStarsText.text = "You Earned: " + starsToGive.ToString() + " Stars";
+        endStarsText.text = "You Earned: " + starsToGive.ToString() + " Pebbles!";
 
         end.starsUnlocked = starsToGive;
 

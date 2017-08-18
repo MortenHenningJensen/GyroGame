@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameEndScreen : MonoBehaviour
 {
     public bool levelCompleted;
-    private GameControl control;
+   // private GameControl control;
     public int starsUnlocked;
 
     private void Start()
     {
         levelCompleted = false;
-        control = FindObjectOfType<GameControl>();
+    //    control = FindObjectOfType<GameControl>();
     }
 
     public void BackToMenu()
