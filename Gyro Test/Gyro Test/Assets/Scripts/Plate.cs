@@ -6,7 +6,7 @@ public class Plate : MonoBehaviour
 {
 
     #region Fields
-    public enum PlateType { NormalPlate = 1, ActivationPlate = 2, GoalPlate = 3, HolePlate = 4, LeaverPlate = 5, CheckPoint = 6 };
+    public enum PlateType { NormalPlate = 1, ActivationPlate = 2, GoalPlate = 3, HolePlate = 4, LeaverPlate = 5, CheckPoint = 6, Ignore = 7 };
     public enum ActivationPlateState { Off = 1, On = 2 };
 
     private GameManager gm;
@@ -46,6 +46,8 @@ public class Plate : MonoBehaviour
     private Material _matCheckOn;
     [SerializeField]
     private Material _matCheckOff;
+
+    private Material myMat;
 
     #endregion
 
@@ -231,6 +233,7 @@ public class Plate : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>(); //Finds the GameManager, and assing it to the variable "gm"..
         Rend = this.GetComponent<Renderer>(); //Finds the plates Rendere..
         Rend.enabled = true; //Enables the rendere, so we can change it's material..
+        myMat = GetComponent<Renderer>().material;
         CurrentMaterial = this.GetComponent<Material>(); //Assigns a new variable, which has properties of a material..
 
         switch (TypeNumb)
@@ -279,6 +282,9 @@ public class Plate : MonoBehaviour
                 {
                     CurrentMaterial = _matCheckOn;
                 }
+                break;
+            case PlateType.Ignore:
+                CurrentMaterial = myMat;
                 break;
             default:
                 break;
