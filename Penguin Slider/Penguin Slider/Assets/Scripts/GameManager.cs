@@ -408,6 +408,10 @@ public class GameManager : MonoBehaviour
 
         end.starsUnlocked = starsToGive;
 
+        AdTracker at = GameObject.FindGameObjectWithTag("AdTracker").GetComponent<AdTracker>();
+        at.attemptCounter++;
+
+
         //1. Load animation for switching levels
         //2. Pop-up with status screen (Time, Re-tries)
         //3. Buttons, "Main Menu", "Share Result", "Re-try","Next Level"

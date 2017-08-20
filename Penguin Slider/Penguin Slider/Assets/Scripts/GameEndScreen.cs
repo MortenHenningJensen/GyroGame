@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameEndScreen : MonoBehaviour
 {
     public bool levelCompleted;
    // private GameControl control;
     public int starsUnlocked;
-    private AdTracker at;
+    //private AdTracker at;
+    public Button nextLevel;
 
     private void Start()
     {
-        at = GameObject.FindGameObjectWithTag("AdTracker").GetComponent<AdTracker>();
+        //at = GameObject.FindGameObjectWithTag("AdTracker").GetComponent<AdTracker>();
         levelCompleted = false;
     //    control = FindObjectOfType<GameControl>();
     }
@@ -30,8 +32,16 @@ public class GameEndScreen : MonoBehaviour
             SaveProgress(SceneManager.GetActiveScene().name.ToString(), starsUnlocked);
         }
 
-        at.attemptCounter++;
+        //at.attemptCounter++;
         SceneManager.LoadScene("Level Select");
+    }
+
+    private void Update()
+    {
+        if (levelCompleted == true)
+        {
+            nextLevel.interactable = true;
+        }
     }
 
     public void ReplayLevel()
@@ -45,9 +55,16 @@ public class GameEndScreen : MonoBehaviour
 
         if (levelCompleted)
         {
-            SaveProgress(SceneManager.GetActiveScene().name.ToString(), starsUnlocked);
+            SaveProgress(SceneManager.GetActiveScene().name.ToString(), starsUnlocked);         
         }
-        at.attemptCounter++;
+        //at.attemptCounter++;
+    }
+
+    void PlayNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     public void SaveProgress(string level, int stars)

@@ -24,8 +24,9 @@ public class CalibrateCounter : MonoBehaviour {
 
     public void SetCounter()
     {
+        //counterPos = Input.deviceOrientation;
         counterPos.x = Input.acceleration.x;
-        counterPos.y = -Input.acceleration.y;
+        counterPos.y = Input.acceleration.y;
         counterText.text = counterPos.ToString();
     }
 

@@ -40,7 +40,7 @@ public class Gyro : MonoBehaviour
 
     private LevelTracker lt;
 
-    Vector3 counterPos;
+    public Vector3 counterPos;
 
     // Use this for initialization
     void Start()
@@ -95,20 +95,20 @@ public class Gyro : MonoBehaviour
                         //Using -Input here, so it feels more real, so when you tilt for phone forward, the plane will go forward
                         //initialOrientationX = Input.gyro.rotationRateUnbiased.x;
                         //initialOrientationY = Input.gyro.rotationRateUnbiased.y;
-                        initialOrientationX = -Input.acceleration.y;
-                        initialOrientationY = Input.acceleration.x;
+                        initialOrientationX = -Input.acceleration.y + counterPos.y;
+                        initialOrientationY = Input.acceleration.x - counterPos.x;
                     }
                     else
                     {
-                        initialOrientationX = -Input.gyro.rotationRateUnbiased.x;
-                        initialOrientationY = -Input.gyro.rotationRateUnbiased.y;
+                        initialOrientationX = -(Input.gyro.rotationRateUnbiased.x - counterPos.x);
+                        initialOrientationY = -(Input.gyro.rotationRateUnbiased.y - counterPos.y);
                     }
 
                     initialOrientationY = Mathf.Clamp(initialOrientationY, minYtilt, maxYtilt);
                     initialOrientationX = Mathf.Clamp(initialOrientationX, minXtilt, maxYtilt);
                     rb.AddForce(counterPos + new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
 
-                    transform.forward = Vector3.Normalize(new Vector3(Input.acceleration.x * speed, 0f, Input.acceleration.y * speed ));
+                    transform.forward = Vector3.Normalize(new Vector3(Input.acceleration.x * speed, 0f, Input.acceleration.y * speed));
 
                     //rb.transform.Translate(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
                     //Debug.DrawRay(rb.transform.position + Vector3.up, Input.acceleration, Color.red);
