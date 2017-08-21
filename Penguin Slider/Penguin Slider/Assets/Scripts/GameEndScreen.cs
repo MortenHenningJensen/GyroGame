@@ -60,9 +60,16 @@ public class GameEndScreen : MonoBehaviour
         //at.attemptCounter++;
     }
 
-    void PlayNextLevel()
+    public void PlayNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        Destroy(GameObject.Find("GameTracker"));
+
+        if (levelCompleted)
+        {
+            SaveProgress(SceneManager.GetActiveScene().name.ToString(), starsUnlocked);
+        }
 
         SceneManager.LoadScene(nextSceneIndex);
     }

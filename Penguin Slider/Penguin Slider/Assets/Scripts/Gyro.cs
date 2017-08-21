@@ -106,7 +106,7 @@ public class Gyro : MonoBehaviour
 
                     initialOrientationY = Mathf.Clamp(initialOrientationY, minYtilt, maxYtilt);
                     initialOrientationX = Mathf.Clamp(initialOrientationX, minXtilt, maxYtilt);
-                    rb.AddForce(counterPos + new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
+                    rb.AddForce(/*counterPos +*/ new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
 
                     transform.forward = Vector3.Normalize(new Vector3(Input.acceleration.x * speed, 0f, Input.acceleration.y * speed));
 
