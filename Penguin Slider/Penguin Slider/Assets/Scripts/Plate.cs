@@ -6,7 +6,7 @@ public class Plate : MonoBehaviour
 {
 
     #region Fields
-    public enum PlateType { NormalPlate = 1, ActivationPlate = 2, GoalPlate = 3, HolePlate = 4, LeaverPlate = 5, CheckPoint = 6, Ignore = 7 };
+    public enum PlateType { NormalPlate = 1, ActivationPlate = 2, GoalPlate = 3, HolePlate = 4, LeaverPlate = 5, CheckPoint = 6, Ignore = 7, QuickSand = 8 };
     public enum ActivationPlateState { Off = 1, On = 2 };
 
     private GameManager gm;
@@ -46,6 +46,9 @@ public class Plate : MonoBehaviour
     private Material _matCheckOn;
     [SerializeField]
     private Material _matCheckOff;
+    [SerializeField]
+    private Material _quickSand;
+
 
     private Material myMat;
 
@@ -286,6 +289,9 @@ public class Plate : MonoBehaviour
             case PlateType.Ignore:
                 CurrentMaterial = myMat;
                 break;
+            case PlateType.QuickSand:
+                CurrentMaterial = _quickSand;
+                break;
             default:
                 break;
         }
@@ -397,6 +403,17 @@ public class Plate : MonoBehaviour
             if (this.TypeNumb == PlateType.LeaverPlate)
             {
                 wallScript.ChangeWall();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider ballCol)
+    {
+        if (ballCol == GameObject.FindGameObjectWithTag("Ball").GetComponent<Collider>())
+        {
+            if (this.TypeNumb == PlateType.QuickSand)
+            {
+                this.gameObject.SetActive(false);
             }
         }
     }
