@@ -86,4 +86,11 @@ public class GameEndScreen : MonoBehaviour
 
         PlayerPrefs.SetInt("lvl " + sceneName, 1);
     }
+
+    public void CheatMode()
+    {
+        SaveProgress(SceneManager.GetActiveScene().name.ToString(), 3);
+
+        SceneManager.LoadScene("Level Select");
+    }
 }
