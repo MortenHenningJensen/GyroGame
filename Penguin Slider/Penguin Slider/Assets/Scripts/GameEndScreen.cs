@@ -91,6 +91,13 @@ public class GameEndScreen : MonoBehaviour
     {
         SaveProgress(SceneManager.GetActiveScene().name.ToString(), 3);
 
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+        Destroy(GameObject.Find("GameTracker"));
+
+
         SceneManager.LoadScene("Level Select");
     }
 }

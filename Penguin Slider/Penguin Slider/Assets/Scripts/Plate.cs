@@ -384,7 +384,7 @@ public class Plate : MonoBehaviour
             {
                 //KOLLIDERER MED DET SAMME, SÅ DEN ADDER DEM TIL LISTEN IGEN
                 lt.hasCheckPoint = true;
-                lt.startPos = this.transform.position;
+                lt.startPos = this.transform.position + new Vector3(0, 1, 0);
                 CurrentMaterial = _matCheckOn;
                 Rend.material = CurrentMaterial;
 
