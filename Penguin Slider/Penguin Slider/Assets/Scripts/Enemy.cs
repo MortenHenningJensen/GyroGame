@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
     public float speed = 5;
     public float waitTime = .3f;
@@ -11,6 +12,8 @@ public class Enemy : MonoBehaviour {
     public float turnSpeed = 90;
 
     public Transform pathHolder;
+
+    public bool shouldNotRotate;
 
     private void Start()
     {
@@ -38,7 +41,10 @@ public class Enemy : MonoBehaviour {
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
-                yield return StartCoroutine(TurnToFace(targetWaypoint));
+                if (!shouldNotRotate)
+                {
+                    yield return StartCoroutine(TurnToFace(targetWaypoint));
+                }
             }
             yield return null;
         }
@@ -62,7 +68,7 @@ public class Enemy : MonoBehaviour {
         Vector3 startPos = pathHolder.GetChild(0).position;
         Vector3 prePos = startPos;
         foreach (Transform waypoint in pathHolder)
-        {          
+        {
             Gizmos.DrawSphere(waypoint.position, 0.3f);
             Gizmos.DrawLine(prePos, waypoint.position);
             prePos = waypoint.position;
