@@ -6,7 +6,7 @@ public class PlatformStick : MonoBehaviour {
 
     public void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "MovingPlatform")
+        if (collision.gameObject.tag == "MovingPlatform" || collision.gameObject.GetComponent<Plate>().TypeNumb == Plate.PlateType.ActivationPlate)
         {
             transform.parent = collision.transform;
         }
@@ -14,11 +14,13 @@ public class PlatformStick : MonoBehaviour {
         {
             transform.parent = null;
         }
+
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "MovingPlatform")
+        if (collision.gameObject.tag == "MovingPlatform" || collision.gameObject.GetComponent<Plate>().TypeNumb == Plate.PlateType.ActivationPlate)
         {
             transform.parent = null;
         }

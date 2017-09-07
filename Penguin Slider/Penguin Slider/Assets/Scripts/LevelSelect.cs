@@ -14,7 +14,9 @@ public class LevelSelect : MonoBehaviour
 
     public string firstLevelUnlocked;
 
-    private GameObject[] levelstofind; //Finds all Gameobjects with tag "Plate"
+    private GameObject[] levelstofind;
+
+    private Canvas levelInfo;
 
 
     public void LevelSelected(string enterWorld)
@@ -30,8 +32,22 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
+    public void PlayLevel()
+    {
+        if (PlayerPrefs.GetInt("lvl " + levelToEnterName) >= 1)
+        {
+            SceneManager.LoadScene(levelToEnterName);
+        }
+
+        if (PlayerPrefs.GetInt("Hidden " + levelToEnterName) >= 1)
+        {
+            SceneManager.LoadScene(levelToEnterName);
+        }
+    }
+
     void Start()
     {
+        levelInfo = GameObject.Find("LevelHighlight").GetComponent<Canvas>();
         PlayerPrefs.SetInt(firstLevelUnlocked, 1);
 
         levels = new List<GameObject>();
@@ -44,6 +60,67 @@ public class LevelSelect : MonoBehaviour
         }
 
         SetUP();
+    }
+
+    public void InfoCanvas(GameObject obj)
+    {
+        levelInfo.enabled = true;
+        levelToEnterName = obj.GetComponentInChildren<Text>().text;
+        levelInfo.GetComponentInChildren<Text>().text = PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + "Title");
+
+        Sprite newSprite = obj.GetComponent<Image>().sprite;
+        levelInfo.transform.FindChild("Button").GetComponent<Image>().sprite = newSprite;
+
+        levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer1");
+        levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer2");
+        levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer3");
+
+        if (PlayerPrefs.GetInt("hasActivate " + obj.GetComponentInChildren<Text>().text) == 0)
+        {
+            Color a = levelInfo.transform.FindChild("PlateInfo").GetComponent<Image>().color;
+            a.a = 0.2f;
+            levelInfo.transform.FindChild("PlateInfo").GetComponent<Image>().color = a;
+        }
+        else
+        {
+            Color a = levelInfo.transform.FindChild("PlateInfo").GetComponent<Image>().color;
+            a.a = 1f;
+            levelInfo.transform.FindChild("PlateInfo").GetComponent<Image>().color = a;
+
+        }
+
+        if (PlayerPrefs.GetInt("hasJump " + obj.GetComponentInChildren<Text>().text) == 0)
+        {
+            Color b = levelInfo.transform.FindChild("JumpInfo").GetComponent<Image>().color;
+            b.a = 0.2f;
+            levelInfo.transform.FindChild("JumpInfo").GetComponent<Image>().color = b;
+        }
+        else
+        {
+            Color b = levelInfo.transform.FindChild("JumpInfo").GetComponent<Image>().color;
+            b.a = 1f;
+            levelInfo.transform.FindChild("JumpInfo").GetComponent<Image>().color = b;
+
+        }
+
+        if (PlayerPrefs.GetInt("hasNug " + obj.GetComponentInChildren<Text>().text) == 0)
+        {
+            Color c = levelInfo.transform.FindChild("NugLevel").GetComponent<Image>().color;
+            c.a = 0.2f;
+            levelInfo.transform.FindChild("NugLevel").GetComponent<Image>().color = c;
+        }
+        else
+        {
+            Color c = levelInfo.transform.FindChild("NugLevel").GetComponent<Image>().color;
+            c.a = 1f;
+            levelInfo.transform.FindChild("NugLevel").GetComponent<Image>().color = c;
+
+        }
+    }
+
+    public void DisableInfoCanvas()
+    {
+        levelInfo.enabled = false;
     }
 
     private void SetUP()
@@ -70,7 +147,7 @@ public class LevelSelect : MonoBehaviour
             ////Debug.Log(PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text));
             //if (PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text) >= 0)
             //{
-           // item.transform.FindChild("StarsText").GetComponent<Text>().text = PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text).ToString() + " / 3 Stars";
+            // item.transform.FindChild("StarsText").GetComponent<Text>().text = PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text).ToString() + " / 3 Stars";
             switch (PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text))
             {
                 case 0:

@@ -190,7 +190,7 @@ public class Gyro : MonoBehaviour
         //    Debug.Log("VIBRATE");
         //}
 
-        if (collision.transform.tag == "Plate")
+        if (collision.transform.tag == "Plate" || collision.transform.tag == "MovingPlatform")
         {
             if (!isGrounded)
             {
