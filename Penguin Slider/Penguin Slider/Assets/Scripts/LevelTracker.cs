@@ -64,7 +64,6 @@ public class LevelTracker : MonoBehaviour
 
     public void AddDeath()
     {
-        Debug.Log("ADD DEATH");
         deathCounter++;
     }
 

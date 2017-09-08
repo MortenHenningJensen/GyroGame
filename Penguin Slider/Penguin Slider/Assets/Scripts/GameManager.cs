@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum TypeOfGame { Normal, RandomActivation, ListActivation }
-public enum GameTheme { Ice, Sand}
+public enum GameTheme { Ice, Sand }
 
 public class GameManager : MonoBehaviour
 {
@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
         CheckPointContiue();
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        
+
         ball.transform.position = new Vector3(lt.startPos.x, lt.startPos.y + 0.5f, lt.startPos.z);
     }
 
@@ -381,7 +381,28 @@ public class GameManager : MonoBehaviour
 
         lt.gameEnded = true;
 
+        //FIND LEVEL NAME, ADD TIMEDISP TO IT
+
         UI _ui = GameObject.Find("UI").GetComponent<UI>();
+        Text betterTimer = GameObject.Find("MoreStars").GetComponent<Text>();
+
+        if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) == 0)
+        {
+            Debug.Log("HighScore was null, setting new score for: " + SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
+            betterTimer.text = "YOU GOT A NEW HIGHSCORE!";
+        }
+        else if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) < _ui.timeLeft)
+        {
+            Debug.Log("HighScore was better!, setting new score for: " + SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
+            betterTimer.text = "YOU BEAT YOUR PREVIOUS TIME!";
+        }
+        else
+        {
+            betterTimer.text = "No new score, better luck next time!";
+            betterTimer.GetComponent<Animator>().enabled = false;
+        }
 
         GameEndScreen end = GameObject.Find("EndScreen").GetComponent<GameEndScreen>();
         end.levelCompleted = true;
@@ -390,11 +411,11 @@ public class GameManager : MonoBehaviour
         {
             starsToGive = 3;
         }
-        else if(_ui.timeLeft < twoStar)
+        else if (_ui.timeLeft < twoStar)
         {
             starsToGive = 2;
         }
-        else if(_ui.timeLeft < oneStar)
+        else if (_ui.timeLeft < oneStar)
         {
             starsToGive = 1;
         }

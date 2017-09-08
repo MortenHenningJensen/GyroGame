@@ -14,6 +14,12 @@ public class LevelInformation : MonoBehaviour {
         WorldSixStats();
         WorldSevenStats();
         WorldEightStats();
+
+        if (PlayerPrefs.GetInt("RunOnce") == 0)
+        {
+            Debug.Log("SETTING TIMERS");
+            SetTimers();
+        }
 	}
 	
     private void WorldOneStats()
@@ -73,7 +79,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetInt("hasActivate 1-7", 1);
         PlayerPrefs.SetInt("hasJump 1-7", 0);
         PlayerPrefs.SetInt("hasNug 1-7", 0);
-
+  
         PlayerPrefs.SetString("1-8Title", "Introduction");
         PlayerPrefs.SetString("1-8 Timer1", "00:10");
         PlayerPrefs.SetString("1-8 Timer2", "00:20");
@@ -97,7 +103,6 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetInt("hasActivate 1-Hidden", 1);
         PlayerPrefs.SetInt("hasJump 1-Hidden", 1);
         PlayerPrefs.SetInt("hasNug 1-Hidden", 0);
-
     }
 
     private void WorldTwoStats()
@@ -276,7 +281,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("4-1 Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 4-1", 1);
         PlayerPrefs.SetInt("hasJump 4-1", 0);
-        PlayerPrefs.SetInt("hasNug 4-1", 0);
+        PlayerPrefs.SetInt("hasNug 4-1", 1);
 
         PlayerPrefs.SetString("4-2Title", "Introduction");
         PlayerPrefs.SetString("4-2 Timer1", "00:10");
@@ -347,7 +352,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("4-Hidden Timer2", "00:20");
         PlayerPrefs.SetString("4-Hidden Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 4-Hidden", 0);
-        PlayerPrefs.SetInt("hasJump 4-Hidden", 0);
+        PlayerPrefs.SetInt("hasJump 4-Hidden", 1);
         PlayerPrefs.SetInt("hasNug 4-Hidden", 0);
 
     }
@@ -416,7 +421,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("5-8 Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 5-8", 0);
         PlayerPrefs.SetInt("hasJump 5-8", 0);
-        PlayerPrefs.SetInt("hasNug 5-8", 0);
+        PlayerPrefs.SetInt("hasNug 5-8", 1);
 
         PlayerPrefs.SetString("5-9Title", "Introduction");
         PlayerPrefs.SetString("5-9 Timer1", "00:10");
@@ -430,7 +435,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("5-Hidden Timer1", "00:10");
         PlayerPrefs.SetString("5-Hidden Timer2", "00:20");
         PlayerPrefs.SetString("5-Hidden Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 5-Hidden", 0);
+        PlayerPrefs.SetInt("hasActivate 5-Hidden", 1);
         PlayerPrefs.SetInt("hasJump 5-Hidden", 0);
         PlayerPrefs.SetInt("hasNug 5-Hidden", 0);
 
@@ -500,7 +505,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("6-8 Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 6-8", 0);
         PlayerPrefs.SetInt("hasJump 6-8", 0);
-        PlayerPrefs.SetInt("hasNug 6-8", 0);
+        PlayerPrefs.SetInt("hasNug 6-8", 1);
 
         PlayerPrefs.SetString("6-9Title", "Introduction");
         PlayerPrefs.SetString("6-9 Timer1", "00:10");
@@ -515,7 +520,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("6-Hidden Timer2", "00:20");
         PlayerPrefs.SetString("6-Hidden Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 6-Hidden", 0);
-        PlayerPrefs.SetInt("hasJump 6-Hidden", 0);
+        PlayerPrefs.SetInt("hasJump 6-Hidden", 1);
         PlayerPrefs.SetInt("hasNug 6-Hidden", 0);
 
     }
@@ -576,7 +581,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("7-7 Timer3", "00:30");
         PlayerPrefs.SetInt("hasActivate 7-7", 0);
         PlayerPrefs.SetInt("hasJump 7-7", 0);
-        PlayerPrefs.SetInt("hasNug 7-7", 0);
+        PlayerPrefs.SetInt("hasNug 7-7", 1);
 
         PlayerPrefs.SetString("7-8Title", "Introduction");
         PlayerPrefs.SetString("7-8 Timer1", "00:10");
@@ -685,7 +690,97 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetInt("hasActivate 8-Hidden", 0);
         PlayerPrefs.SetInt("hasJump 8-Hidden", 0);
         PlayerPrefs.SetInt("hasNug 8-Hidden", 0);
-
     }
 
+    private void SetTimers()
+    {
+        PlayerPrefs.SetInt("RunOnce", 1);
+        PlayerPrefs.SetFloat("bestTime 1-1", 0);
+        PlayerPrefs.SetFloat("bestTime 1-2", 0);
+        PlayerPrefs.SetFloat("bestTime 1-3", 0);
+        PlayerPrefs.SetFloat("bestTime 1-4", 0);
+        PlayerPrefs.SetFloat("bestTime 1-5", 0);
+        PlayerPrefs.SetFloat("bestTime 1-6", 0);
+        PlayerPrefs.SetFloat("bestTime 1-7", 0);
+        PlayerPrefs.SetFloat("bestTime 1-8", 0);
+        PlayerPrefs.SetFloat("bestTime 1-9", 0);
+        PlayerPrefs.SetFloat("bestTime 1-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 2-1", 0);
+        PlayerPrefs.SetFloat("bestTime 2-2", 0);
+        PlayerPrefs.SetFloat("bestTime 2-3", 0);
+        PlayerPrefs.SetFloat("bestTime 2-4", 0);
+        PlayerPrefs.SetFloat("bestTime 2-5", 0);
+        PlayerPrefs.SetFloat("bestTime 2-6", 0);
+        PlayerPrefs.SetFloat("bestTime 2-7", 0);
+        PlayerPrefs.SetFloat("bestTime 2-8", 0);
+        PlayerPrefs.SetFloat("bestTime 2-9", 0);
+        PlayerPrefs.SetFloat("bestTime 2-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 3-1", 0);
+        PlayerPrefs.SetFloat("bestTime 3-2", 0);
+        PlayerPrefs.SetFloat("bestTime 3-3", 0);
+        PlayerPrefs.SetFloat("bestTime 3-4", 0);
+        PlayerPrefs.SetFloat("bestTime 3-5", 0);
+        PlayerPrefs.SetFloat("bestTime 3-6", 0);
+        PlayerPrefs.SetFloat("bestTime 3-7", 0);
+        PlayerPrefs.SetFloat("bestTime 3-8", 0);
+        PlayerPrefs.SetFloat("bestTime 3-9", 0);
+        PlayerPrefs.SetFloat("bestTime 3-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 4-1", 0);
+        PlayerPrefs.SetFloat("bestTime 4-2", 0);
+        PlayerPrefs.SetFloat("bestTime 4-3", 0);
+        PlayerPrefs.SetFloat("bestTime 4-4", 0);
+        PlayerPrefs.SetFloat("bestTime 4-5", 0);
+        PlayerPrefs.SetFloat("bestTime 4-6", 0);
+        PlayerPrefs.SetFloat("bestTime 4-7", 0);
+        PlayerPrefs.SetFloat("bestTime 4-8", 0);
+        PlayerPrefs.SetFloat("bestTime 4-9", 0);
+        PlayerPrefs.SetFloat("bestTime 4-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 5-1", 0);
+        PlayerPrefs.SetFloat("bestTime 5-2", 0);
+        PlayerPrefs.SetFloat("bestTime 5-3", 0);
+        PlayerPrefs.SetFloat("bestTime 5-4", 0);
+        PlayerPrefs.SetFloat("bestTime 5-5", 0);
+        PlayerPrefs.SetFloat("bestTime 5-6", 0);
+        PlayerPrefs.SetFloat("bestTime 5-7", 0);
+        PlayerPrefs.SetFloat("bestTime 5-8", 0);
+        PlayerPrefs.SetFloat("bestTime 5-9", 0);
+        PlayerPrefs.SetFloat("bestTime 5-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 6-1", 0);
+        PlayerPrefs.SetFloat("bestTime 6-2", 0);
+        PlayerPrefs.SetFloat("bestTime 6-3", 0);
+        PlayerPrefs.SetFloat("bestTime 6-4", 0);
+        PlayerPrefs.SetFloat("bestTime 6-5", 0);
+        PlayerPrefs.SetFloat("bestTime 6-6", 0);
+        PlayerPrefs.SetFloat("bestTime 6-7", 0);
+        PlayerPrefs.SetFloat("bestTime 6-8", 0);
+        PlayerPrefs.SetFloat("bestTime 6-9", 0);
+        PlayerPrefs.SetFloat("bestTime 6-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 7-1", 0);
+        PlayerPrefs.SetFloat("bestTime 7-2", 0);
+        PlayerPrefs.SetFloat("bestTime 7-3", 0);
+        PlayerPrefs.SetFloat("bestTime 7-4", 0);
+        PlayerPrefs.SetFloat("bestTime 7-5", 0);
+        PlayerPrefs.SetFloat("bestTime 7-6", 0);
+        PlayerPrefs.SetFloat("bestTime 7-7", 0);
+        PlayerPrefs.SetFloat("bestTime 7-8", 0);
+        PlayerPrefs.SetFloat("bestTime 7-9", 0);
+        PlayerPrefs.SetFloat("bestTime 7-Hidden", 0);
+
+        PlayerPrefs.SetFloat("bestTime 8-1", 0);
+        PlayerPrefs.SetFloat("bestTime 8-2", 0);
+        PlayerPrefs.SetFloat("bestTime 8-3", 0);
+        PlayerPrefs.SetFloat("bestTime 8-4", 0);
+        PlayerPrefs.SetFloat("bestTime 8-5", 0);
+        PlayerPrefs.SetFloat("bestTime 8-6", 0);
+        PlayerPrefs.SetFloat("bestTime 8-7", 0);
+        PlayerPrefs.SetFloat("bestTime 8-8", 0);
+        PlayerPrefs.SetFloat("bestTime 8-9", 0);
+        PlayerPrefs.SetFloat("bestTime 8-Hidden", 0);
+    }
 }

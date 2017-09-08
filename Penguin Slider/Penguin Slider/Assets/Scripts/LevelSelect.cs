@@ -71,6 +71,8 @@ public class LevelSelect : MonoBehaviour
         Sprite newSprite = obj.GetComponent<Image>().sprite;
         levelInfo.transform.FindChild("Button").GetComponent<Image>().sprite = newSprite;
 
+        levelInfo.transform.FindChild("YourBestTime").GetComponent<Text>().text = "Your best time: " + PlayerPrefs.GetFloat("bestTime " + obj.GetComponentInChildren<Text>().text).ToString("F2") + " Seconds";
+
         levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer1");
         levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer2");
         levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer3");
