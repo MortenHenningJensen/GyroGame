@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour {
 
     public Canvas optionsMenu;
+    public Canvas howToPlay;
 
     private void Start()
     {
         optionsMenu.enabled = false;
-    }
+        howToPlay.enabled = false;
+}
 
     public void WorldSelect()
     {
@@ -30,5 +32,15 @@ public class MenuController : MonoBehaviour {
     public void OptionsDeselect()
     {
         optionsMenu.enabled = false;
+    }
+
+    public void HowToPlay()
+    {
+        howToPlay.enabled = true;
+    }
+
+    public void DeselectHowToPlay()
+    {
+        howToPlay.enabled = false;
     }
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/World 7/7-Hidden.unity
+- path: Assets/Scenes/World 6/6-9.unity
   isLoaded: 1
   isActive: 1

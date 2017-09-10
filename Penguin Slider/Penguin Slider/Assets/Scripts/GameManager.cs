@@ -386,23 +386,26 @@ public class GameManager : MonoBehaviour
         UI _ui = GameObject.Find("UI").GetComponent<UI>();
         Text betterTimer = GameObject.Find("MoreStars").GetComponent<Text>();
 
+
         if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) == 0)
         {
             Debug.Log("HighScore was null, setting new score for: " + SceneManager.GetActiveScene().name);
             PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
             betterTimer.text = "YOU GOT A NEW HIGHSCORE!";
         }
-        else if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) < _ui.timeLeft)
+        else if (_ui.timeLeft < PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name))
         {
             Debug.Log("HighScore was better!, setting new score for: " + SceneManager.GetActiveScene().name);
             PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
             betterTimer.text = "YOU BEAT YOUR PREVIOUS TIME!";
         }
-        else
+
+        if (_ui.timeLeft > PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name))
         {
             betterTimer.text = "No new score, better luck next time!";
             betterTimer.GetComponent<Animator>().enabled = false;
         }
+
 
         GameEndScreen end = GameObject.Find("EndScreen").GetComponent<GameEndScreen>();
         end.levelCompleted = true;

@@ -92,9 +92,6 @@ public class Gyro : MonoBehaviour
                 case typetorotate.ball:
                     if (!inverted)
                     {
-                        //Using -Input here, so it feels more real, so when you tilt for phone forward, the plane will go forward
-                        //initialOrientationX = Input.gyro.rotationRateUnbiased.x;
-                        //initialOrientationY = Input.gyro.rotationRateUnbiased.y;
                         initialOrientationX = -Input.acceleration.y + counterPos.y;
                         initialOrientationY = Input.acceleration.x - counterPos.x;
                     }
@@ -104,9 +101,13 @@ public class Gyro : MonoBehaviour
                         initialOrientationY = -(Input.gyro.rotationRateUnbiased.y - counterPos.y);
                     }
 
+                    //SÆTTE EN MAX SPEED PÅ HER, SÆTTE MAX TILT OG MIN TILT HØJERE OG LAVERE
+                    //SÆTTE MERE ACCELERATION PÅ?
+
                     initialOrientationY = Mathf.Clamp(initialOrientationY, minYtilt, maxYtilt);
                     initialOrientationX = Mathf.Clamp(initialOrientationX, minXtilt, maxYtilt);
-                    rb.AddForce(/*counterPos +*/ new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
+                    //rb.AddForce(new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
+                    rb.transform.Translate(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
 
                     transform.forward = Vector3.Normalize(new Vector3(Input.acceleration.x * speed, 0f, Input.acceleration.y * speed));
 
