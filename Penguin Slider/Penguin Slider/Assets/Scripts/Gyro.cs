@@ -22,10 +22,10 @@ public class Gyro : MonoBehaviour
     [Header("Phone Variables")]
     public float initialOrientationX;
     public float initialOrientationY;
-    public float minXtilt = -45;
-    public float maxXtilt = 45;
-    public float minYtilt = -45;
-    public float maxYtilt = 45;
+    public float minXtilt = -50;
+    public float maxXtilt = 50;
+    public float minYtilt = -50;
+    public float maxYtilt = 50;
     [Range(0.1f, 2f)]
     public float smooth = 0.5F;
     public float tiltAngle = 30.0F;
@@ -59,7 +59,7 @@ public class Gyro : MonoBehaviour
         {
             rb = GetComponent<Rigidbody>();
             type = typetorotate.ball;
-            speed = 20f;
+            speed = 24f;
             isGrounded = true;
             jumpForce = 150f;
         }
@@ -81,6 +81,11 @@ public class Gyro : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameObject.Find("UI").GetComponent<UI>().Pause();
+        }
+
         if (!lt.gameEnded)
         {
             //This will reset the planes position, so the Y axis is straight (0), does add some "drag" to the game, either make this more smooth, or just use this somehow for movement
@@ -106,9 +111,8 @@ public class Gyro : MonoBehaviour
 
                     initialOrientationY = Mathf.Clamp(initialOrientationY, minYtilt, maxYtilt);
                     initialOrientationX = Mathf.Clamp(initialOrientationX, minXtilt, maxYtilt);
-                    //rb.AddForce(new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
-                    rb.transform.Translate(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
-
+                    rb.AddForce(new Vector3(initialOrientationY * speed, 0.0f, -initialOrientationX * speed));
+                    //rb.transform.Translate(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);
                     transform.forward = Vector3.Normalize(new Vector3(Input.acceleration.x * speed, 0f, Input.acceleration.y * speed));
 
                     //rb.transform.Translate(initialOrientationY * speed, 0.0f, -initialOrientationX * speed);

@@ -20,12 +20,55 @@ public class MainMenu : MonoBehaviour
     public Canvas worldSeven;
     public Canvas worldEight;
 
+    public Button worldOnebtn;
+    public Button worldTwobtn;
+    public Button worldThreebtn;
+    public Button worldFourbtn;
+    public Button worldFivebtn;
+    public Button worldSixbtn;
+    public Button worldSevenbtn;
+    public Button worldEightbtn;
+    public Button worldSand;
+
     // Use this for initialization
     void Start()
     {
-        //worldSelect.enabled = true;
-        //worldOne.enabled = false;
-        //worldTwo.enabled = false;
+        if (PlayerPrefs.GetInt("lvl 2-1") == 1)
+        {
+            worldTwobtn.interactable = true;
+        }
+        if (PlayerPrefs.GetInt("lvl 3-1") == 1)
+        {
+            worldThreebtn.interactable = true;
+
+        }
+        if (PlayerPrefs.GetInt("lvl 4-1") == 1)
+        {
+            worldFourbtn.interactable = true;
+
+        }
+        if (PlayerPrefs.GetInt("lvl 5-1") == 1)
+        {
+            worldFivebtn.interactable = true;
+            worldSand.interactable = true;
+
+        }
+        if (PlayerPrefs.GetInt("lvl 6-1") == 1)
+        {
+            worldSixbtn.interactable = true;
+
+        }
+        if (PlayerPrefs.GetInt("lvl 7-1") == 1)
+        {
+            worldSevenbtn.interactable = true;
+
+        }
+        if (PlayerPrefs.GetInt("lvl 8-1") == 1)
+        {
+            worldEightbtn.interactable = true;
+
+        }
+
     }
 
     // Update is called once per frame
