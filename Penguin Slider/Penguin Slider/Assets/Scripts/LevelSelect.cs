@@ -77,6 +77,10 @@ public class LevelSelect : MonoBehaviour
         levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer2");
         levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer3");
 
+        levelInfo.transform.FindChild("BestAttempts").GetComponent<Text>().text = "Best Attempts: " + PlayerPrefs.GetInt("bestAttempts " + obj.GetComponentInChildren<Text>().text);
+        levelInfo.transform.FindChild("TotalAttempts").GetComponent<Text>().text = "Total Attempts: " + PlayerPrefs.GetInt("totalAttempts " + obj.GetComponentInChildren<Text>().text);
+
+
         if (PlayerPrefs.GetInt("hasActivate " + obj.GetComponentInChildren<Text>().text) == 0)
         {
             Color a = levelInfo.transform.FindChild("PlateInfo").GetComponent<Image>().color;

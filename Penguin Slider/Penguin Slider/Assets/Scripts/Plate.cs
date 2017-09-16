@@ -375,8 +375,9 @@ public class Plate : MonoBehaviour
 
             }
 
-            if (this.TypeNumb == PlateType.GoalPlate && gm.CanEnd)
+            if (this.TypeNumb == PlateType.GoalPlate && gm.CanEnd && !gm.ended)
             {
+                //KØRER DET IGENNEM 2 GANGE, LAV BOOL PÅ CHECK?
                 gm.EndStatus();
             }
 

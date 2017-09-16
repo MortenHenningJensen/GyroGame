@@ -15,8 +15,11 @@ public class Enemy : MonoBehaviour
 
     public bool shouldNotRotate;
 
+    private LevelTracker lt;
+
     private void Start()
     {
+        lt = GameObject.Find("GameTracker").GetComponent<LevelTracker>();
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
         {
@@ -33,7 +36,7 @@ public class Enemy : MonoBehaviour
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
         transform.LookAt(targetWaypoint);
 
-        while (true)
+        while (!lt.gameEnded)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
             if (transform.position == targetWaypoint)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelTracker : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class LevelTracker : MonoBehaviour
     [SerializeField]
     public string[] platesToAdd;
 
-
     void Awake()
     {
+        deathCounter = 1;
         platesToAdd = new string[10];
         findOnce = false;
         hasCheckPoint = false;
@@ -46,11 +47,13 @@ public class LevelTracker : MonoBehaviour
             findOnce = true;
         }
 
-        if (deathCounter >= 3)
+        if (deathCounter % 3 == 0)
         {
-            gameEnded = true;
-            gameEnd.enabled = true;
+            GameObject.Find("AdTracker").GetComponent<AdTracker>().attemptCounter++;
+            //gameEnded = true;
+            //gameEnd.enabled = true;
         }
+
 
         for (int i = 0; i < activatedPlates.Count; i++)
         {
@@ -65,6 +68,7 @@ public class LevelTracker : MonoBehaviour
     public void AddDeath()
     {
         deathCounter++;
+        PlayerPrefs.SetInt("totalAttepmts " + SceneManager.GetActiveScene().name, PlayerPrefs.GetInt("totalAttepmts " + SceneManager.GetActiveScene().name) + 1);
     }
 
 }

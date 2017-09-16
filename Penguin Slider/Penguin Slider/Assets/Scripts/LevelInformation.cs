@@ -17,8 +17,8 @@ public class LevelInformation : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("RunOnce") == 0)
         {
-            Debug.Log("SETTING TIMERS");
             SetTimers();
+            SetAttempts();
         }
 	}
 	
@@ -783,4 +783,248 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetFloat("bestTime 8-9", 0);
         PlayerPrefs.SetFloat("bestTime 8-Hidden", 0);
     }
+
+    public void SetAttempts()
+    {
+        PlayerPrefs.SetInt("bestAttempts 1-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 1-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 1-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 2-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 2-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 3-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 3-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 4-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 4-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 5-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 5-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 6-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 6-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 7-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 7-Hidden", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-1", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-1", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-2", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-2", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-3", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-3", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-4", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-4", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-5", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-5", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-6", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-6", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-7", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-7", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-8", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-8", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-9", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-9", 0);
+
+        PlayerPrefs.SetInt("bestAttempts 8-Hidden", 0);
+        PlayerPrefs.SetInt("totalAttempts 8-Hidden", 0);
+    }
+
 }

@@ -368,9 +368,11 @@ public class GameManager : MonoBehaviour
     public int twoStar;
     public int threeStar;
     private int starsToGive;
+    public bool ended = false;
 
     public void EndStatus()
     {
+        ended = true;
         gameEnd = GameObject.Find("EndScreen").GetComponent<Canvas>();
         gameEnd.enabled = true;
 
@@ -389,13 +391,13 @@ public class GameManager : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) == 0)
         {
-            Debug.Log("HighScore was null, setting new score for: " + SceneManager.GetActiveScene().name);
+            betterTimer.GetComponent<Animator>().enabled = true;
             PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
             betterTimer.text = "YOU GOT A NEW HIGHSCORE!";
         }
         else if (_ui.timeLeft < PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name))
         {
-            Debug.Log("HighScore was better!, setting new score for: " + SceneManager.GetActiveScene().name);
+            betterTimer.GetComponent<Animator>().enabled = true;
             PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
             betterTimer.text = "YOU BEAT YOUR PREVIOUS TIME!";
         }
@@ -406,6 +408,19 @@ public class GameManager : MonoBehaviour
             betterTimer.GetComponent<Animator>().enabled = false;
         }
 
+        Text betterAttempts = GameObject.Find("BetterAttempt").GetComponent<Text>();
+
+        if (lt.deathCounter < PlayerPrefs.GetInt("bestAttempts " + SceneManager.GetActiveScene().name) || PlayerPrefs.GetInt("bestAttempts " + SceneManager.GetActiveScene().name) == 0)
+        {
+            PlayerPrefs.SetInt("bestAttempts " + SceneManager.GetActiveScene().name, lt.deathCounter);
+            betterAttempts.text = "You beat your previous best attempts!";
+            betterAttempts.GetComponent<Animator>().enabled = true;
+        }
+
+        int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + lt.deathCounter;
+
+        PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
+        //VIS TOTAL ATTEMPTS I EN TEKST
 
         GameEndScreen end = GameObject.Find("EndScreen").GetComponent<GameEndScreen>();
         end.levelCompleted = true;

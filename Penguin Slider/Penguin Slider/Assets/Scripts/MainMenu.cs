@@ -30,8 +30,7 @@ public class MainMenu : MonoBehaviour
     public Button worldEightbtn;
     public Button worldSand;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (PlayerPrefs.GetInt("lvl 2-1") == 1)
         {
@@ -66,7 +65,6 @@ public class MainMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("lvl 8-1") == 1)
         {
             worldEightbtn.interactable = true;
-
         }
 
     }
