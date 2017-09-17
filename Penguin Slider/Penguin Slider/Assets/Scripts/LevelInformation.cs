@@ -623,7 +623,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("8-2 Timer1", "00:10");
         PlayerPrefs.SetString("8-2 Timer2", "00:20");
         PlayerPrefs.SetString("8-2 Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 8-2", 0);
+        PlayerPrefs.SetInt("hasActivate 8-2", 1);
         PlayerPrefs.SetInt("hasJump 8-2", 0);
         PlayerPrefs.SetInt("hasNug 8-2", 0);
 
@@ -631,7 +631,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("8-3 Timer1", "00:10");
         PlayerPrefs.SetString("8-3 Timer2", "00:20");
         PlayerPrefs.SetString("8-3 Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 8-3", 0);
+        PlayerPrefs.SetInt("hasActivate 8-3", 1);
         PlayerPrefs.SetInt("hasJump 8-3", 0);
         PlayerPrefs.SetInt("hasNug 8-3", 0);
 
@@ -647,7 +647,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("8-5 Timer1", "00:10");
         PlayerPrefs.SetString("8-5 Timer2", "00:20");
         PlayerPrefs.SetString("8-5 Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 8-5", 0);
+        PlayerPrefs.SetInt("hasActivate 8-5", 1);
         PlayerPrefs.SetInt("hasJump 8-5", 0);
         PlayerPrefs.SetInt("hasNug 8-5", 0);
 
@@ -663,16 +663,16 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetString("8-7 Timer1", "00:10");
         PlayerPrefs.SetString("8-7 Timer2", "00:20");
         PlayerPrefs.SetString("8-7 Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 8-7", 0);
+        PlayerPrefs.SetInt("hasActivate 8-7", 1);
         PlayerPrefs.SetInt("hasJump 8-7", 0);
-        PlayerPrefs.SetInt("hasNug 8-7", 0);
+        PlayerPrefs.SetInt("hasNug 8-7", 1);
 
         PlayerPrefs.SetString("8-8Title", "Introduction");
         PlayerPrefs.SetString("8-8 Timer1", "00:10");
         PlayerPrefs.SetString("8-8 Timer2", "00:20");
         PlayerPrefs.SetString("8-8 Timer3", "00:30");
-        PlayerPrefs.SetInt("hasActivate 8-8", 0);
-        PlayerPrefs.SetInt("hasJump 8-8", 0);
+        PlayerPrefs.SetInt("hasActivate 8-8", 1);
+        PlayerPrefs.SetInt("hasJump 8-8", 1);
         PlayerPrefs.SetInt("hasNug 8-8", 0);
 
         PlayerPrefs.SetString("8-9Title", "Introduction");
@@ -683,7 +683,7 @@ public class LevelInformation : MonoBehaviour {
         PlayerPrefs.SetInt("hasJump 8-9", 0);
         PlayerPrefs.SetInt("hasNug 8-9", 0);
 
-        PlayerPrefs.SetString("8-HiddenTitle", "Introduction");
+        PlayerPrefs.SetString("8-HiddenTitle", "Aim for the rocks!");
         PlayerPrefs.SetString("8-Hidden Timer1", "00:10");
         PlayerPrefs.SetString("8-Hidden Timer2", "00:20");
         PlayerPrefs.SetString("8-Hidden Timer3", "00:30");
