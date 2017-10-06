@@ -417,9 +417,9 @@ public class GameManager : MonoBehaviour
             betterAttempts.GetComponent<Animator>().enabled = true;
         }
 
-        int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + lt.deathCounter;
+        //int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + lt.deathCounter;
 
-        PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
+        //PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
         //VIS TOTAL ATTEMPTS I EN TEKST
 
         GameEndScreen end = GameObject.Find("EndScreen").GetComponent<GameEndScreen>();

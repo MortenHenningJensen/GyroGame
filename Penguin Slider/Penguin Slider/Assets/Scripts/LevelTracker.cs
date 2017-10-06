@@ -47,13 +47,6 @@ public class LevelTracker : MonoBehaviour
             findOnce = true;
         }
 
-        if (deathCounter % 3 == 0)
-        {
-            GameObject.Find("AdTracker").GetComponent<AdTracker>().attemptCounter++;
-            //gameEnded = true;
-            //gameEnd.enabled = true;
-        }
-
 
         for (int i = 0; i < activatedPlates.Count; i++)
         {
@@ -67,8 +60,16 @@ public class LevelTracker : MonoBehaviour
 
     public void AddDeath()
     {
+        if (deathCounter % 3 == 0)
+        {
+           GameObject.Find("AdTracker").GetComponent<AdTracker>().attemptCounter++;
+        }
+
         deathCounter++;
-        PlayerPrefs.SetInt("totalAttepmts " + SceneManager.GetActiveScene().name, PlayerPrefs.GetInt("totalAttepmts " + SceneManager.GetActiveScene().name) + 1);
+
+        int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + deathCounter;
+
+        PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
     }
 
 }
