@@ -67,8 +67,6 @@ public class LevelTracker : MonoBehaviour
            GameObject.Find("AdTracker").GetComponent<AdTracker>().attemptCounter++;
         }
 
-        totalTimer += GameObject.Find("UI").GetComponent<UI>().timeLeft;
-
         deathCounter++;
 
         int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + deathCounter;

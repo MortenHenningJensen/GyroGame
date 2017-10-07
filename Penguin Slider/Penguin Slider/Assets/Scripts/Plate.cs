@@ -383,6 +383,8 @@ public class Plate : MonoBehaviour
 
             if (this.TypeNumb == PlateType.CheckPoint)
             {
+                lt.totalTimer = GameObject.Find("UI").GetComponent<UI>().timeLeft;
+
                 //KOLLIDERER MED DET SAMME, SÅ DEN ADDER DEM TIL LISTEN IGEN
                 lt.hasCheckPoint = true;
                 lt.startPos = this.transform.position + new Vector3(0, 1, 0);
