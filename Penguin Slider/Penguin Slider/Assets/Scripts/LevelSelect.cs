@@ -73,9 +73,9 @@ public class LevelSelect : MonoBehaviour
 
         levelInfo.transform.FindChild("YourBestTime").GetComponent<Text>().text = "Your best time: " + PlayerPrefs.GetFloat("bestTime " + obj.GetComponentInChildren<Text>().text).ToString("F2") + " Seconds";
 
-        levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer1");
-        levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer2");
-        levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + " Timer3");
+        levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer1").ToString("F2");
+        levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer2").ToString("F2");
+        levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer3").ToString("F2");
 
         levelInfo.transform.FindChild("BestAttempts").GetComponent<Text>().text = "Best Attempts: " + PlayerPrefs.GetInt("bestAttempts " + obj.GetComponentInChildren<Text>().text);
         levelInfo.transform.FindChild("TotalAttempts").GetComponent<Text>().text = "Total Attempts: " + PlayerPrefs.GetInt("totalAttempts " + obj.GetComponentInChildren<Text>().text);

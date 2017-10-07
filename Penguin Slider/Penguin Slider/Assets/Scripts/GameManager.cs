@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -360,18 +361,23 @@ public class GameManager : MonoBehaviour
     void GetRandNumber()
     {
         _isActive = true;
-        _rand = Random.Range(0, lockedPlates.Count - 1); //Finds a random LockedPlate on the list.
+        _rand = UnityEngine.Random.Range(0, lockedPlates.Count - 1); //Finds a random LockedPlate on the list.
     }
 
     [Header("Star Requirement")]
-    public int oneStar;
-    public int twoStar;
-    public int threeStar;
+    public float oneStar;
+    public float twoStar;
+    public float threeStar;
     private int starsToGive;
     public bool ended = false;
 
     public void EndStatus()
     {
+        oneStar = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " Timer1");
+        twoStar = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " Timer2");
+        threeStar = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " Timer3");
+
+        //oneStar = getprefab levelname, 1startime;
         ended = true;
         gameEnd = GameObject.Find("EndScreen").GetComponent<Canvas>();
         gameEnd.enabled = true;

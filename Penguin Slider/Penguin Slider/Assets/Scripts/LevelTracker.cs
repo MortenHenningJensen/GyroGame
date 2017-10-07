@@ -14,6 +14,8 @@ public class LevelTracker : MonoBehaviour
     public Vector3 startPos;
     public bool hasCheckPoint;
 
+    public float totalTimer;
+
     [SerializeField]
     public List<GameObject> activatedPlates; //List of all plates that has been activated
                                              //Lav array som har en liste med strings (navne på plates), så find elementet med GameObject.Find(arraystring), ved ikke om det vil hjælpe, ellers få Skinke til at kigge på det
@@ -64,6 +66,8 @@ public class LevelTracker : MonoBehaviour
         {
            GameObject.Find("AdTracker").GetComponent<AdTracker>().attemptCounter++;
         }
+
+        totalTimer += GameObject.Find("UI").GetComponent<UI>().timeLeft;
 
         deathCounter++;
 

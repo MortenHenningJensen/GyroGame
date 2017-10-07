@@ -20,7 +20,7 @@ public class UI : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        timeLeft = 0;
+        timeLeft = GameObject.Find("GameTracker").GetComponent<LevelTracker>().totalTimer;
         lt = GameObject.Find("GameTracker").GetComponent<LevelTracker>();
 
         if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) > 0)

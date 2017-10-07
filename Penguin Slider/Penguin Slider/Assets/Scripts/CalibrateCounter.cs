@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CalibrateCounter : MonoBehaviour {
+public class CalibrateCounter : MonoBehaviour
+{
 
     public Vector3 counterPos;
     public Text counterText;
@@ -11,9 +12,22 @@ public class CalibrateCounter : MonoBehaviour {
     Matrix4x4 calibrationMatrix;
     Vector3 wantedDeadzone = Vector3.zero;
 
+    private static CalibrateCounter instanceRef;
+
+
     // Use this for initialization
-    void Start () {
-        DontDestroyOnLoad(this);
+    void Start()
+    {
+
+        if (instanceRef == null)
+        {
+            instanceRef = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
+        }
 
         if (!Input.gyro.enabled)
         {
