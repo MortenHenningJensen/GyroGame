@@ -12,6 +12,10 @@ public class GameEndScreen : MonoBehaviour
     //private AdTracker at;
     public Button nextLevel;
 
+    public Image starOne;
+    public Image starTwo;
+    public Image starThree;
+
     private void Start()
     {
         //at = GameObject.FindGameObjectWithTag("AdTracker").GetComponent<AdTracker>();

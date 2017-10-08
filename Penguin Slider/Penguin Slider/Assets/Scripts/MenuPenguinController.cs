@@ -49,8 +49,8 @@ public class MenuPenguinController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        initialOrientationX = -(Input.gyro.rotationRateUnbiased.x - counterPos.x);
-        initialOrientationY = -(Input.gyro.rotationRateUnbiased.y - counterPos.y);
+        initialOrientationX = -Input.acceleration.y + counterPos.y;
+        initialOrientationY = Input.acceleration.x - counterPos.x;
 
         initialOrientationY = Mathf.Clamp(initialOrientationY, minYtilt, maxYtilt);
         initialOrientationX = Mathf.Clamp(initialOrientationX, minXtilt, maxYtilt);

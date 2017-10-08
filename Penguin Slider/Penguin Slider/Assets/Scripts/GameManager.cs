@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -399,7 +400,7 @@ public class GameManager : MonoBehaviour
         {
             betterTimer.GetComponent<Animator>().enabled = true;
             PlayerPrefs.SetFloat("bestTime " + SceneManager.GetActiveScene().name, _ui.timeLeft);
-            betterTimer.text = "YOU GOT A NEW HIGHSCORE!";
+            betterTimer.text = "YOU GOT A NEW BEST TIME!";
         }
         else if (_ui.timeLeft < PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name))
         {
@@ -410,7 +411,7 @@ public class GameManager : MonoBehaviour
 
         if (_ui.timeLeft > PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name))
         {
-            betterTimer.text = "No new score, better luck next time!";
+            betterTimer.text = "Not a faster time, better luck next time!";
             betterTimer.GetComponent<Animator>().enabled = false;
         }
 
@@ -431,6 +432,8 @@ public class GameManager : MonoBehaviour
         GameEndScreen end = GameObject.Find("EndScreen").GetComponent<GameEndScreen>();
         end.levelCompleted = true;
 
+        StartCoroutine(StarsAnimaion(end));
+
         if (_ui.timeLeft < threeStar)
         {
             starsToGive = 3;
@@ -441,12 +444,15 @@ public class GameManager : MonoBehaviour
         }
         else if (_ui.timeLeft < oneStar)
         {
+
             starsToGive = 1;
         }
         else if (_ui.timeLeft > oneStar)
         {
             starsToGive = 0;
         }
+
+
 
         Text endStarsText = GameObject.Find("StarsEarned").GetComponent<Text>();
         endStarsText.text = "You Earned: " + starsToGive.ToString() + " Pebbles!";
@@ -460,5 +466,25 @@ public class GameManager : MonoBehaviour
         //1. Load animation for switching levels
         //2. Pop-up with status screen (Time, Re-tries)
         //3. Buttons, "Main Menu", "Share Result", "Re-try","Next Level"
+    }
+
+    IEnumerator StarsAnimaion(GameEndScreen end)
+    {
+        for (int i = 0; i <= starsToGive; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    end.starOne.GetComponent<Animation>().Play();
+                    break;
+                case 1:
+                    end.starTwo.GetComponent<Animation>().Play();
+                    break;
+                case 2:
+                    end.starThree.GetComponent<Animation>().Play();
+                    break;
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
 }
