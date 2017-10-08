@@ -36,20 +36,27 @@ public class Enemy : MonoBehaviour
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
         transform.LookAt(targetWaypoint);
 
-        while (!lt.gameEnded)
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-            if (transform.position == targetWaypoint)
+            if (!lt.gameEnded)
             {
-                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-                targetWaypoint = waypoints[targetWaypointIndex];
-                yield return new WaitForSeconds(waitTime);
-                if (!shouldNotRotate)
+                transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+                if (transform.position == targetWaypoint)
                 {
-                    yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                    targetWaypoint = waypoints[targetWaypointIndex];
+                    yield return new WaitForSeconds(waitTime);
+                    if (!shouldNotRotate)
+                    {
+                        yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    }
                 }
+                yield return null;
             }
-            yield return null;
+            else
+            {
+                yield return null;
+            }
         }
     }
 

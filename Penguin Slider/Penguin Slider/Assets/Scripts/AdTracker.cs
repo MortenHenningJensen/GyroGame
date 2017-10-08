@@ -28,8 +28,7 @@ public class AdTracker : MonoBehaviour {
         if (attemptCounter >= 5)
         {
             attemptCounter = 0;
-            Advertisement.Show();
-            
+            Advertisement.Show();            
         }
 	}
 }
