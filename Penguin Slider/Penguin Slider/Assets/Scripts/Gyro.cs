@@ -189,11 +189,12 @@ public class Gyro : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        //if (collision.transform.tag == "Wall")
-        //{
-        //    Handheld.Vibrate();
-        //    Debug.Log("VIBRATE");
-        //}
+        if (collision.transform.tag == "Wall")
+        {
+            GetComponent<Animation>().Play();
+            //Handheld.Vibrate();
+            //Debug.Log("VIBRATE");
+        }
 
         if (collision.transform.tag == "Plate" || collision.transform.tag == "MovingPlatform")
         {

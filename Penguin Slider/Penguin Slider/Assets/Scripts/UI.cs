@@ -15,6 +15,10 @@ public class UI : MonoBehaviour
     private LevelTracker lt;
     public Canvas pauseMenu;
     private bool firstAttempt;
+    public bool hintBox;
+    public string hintText;
+    public GameObject hint;
+    public Text hintTextBox;
 
     // Use this for initialization
     void Start()
@@ -32,6 +36,22 @@ public class UI : MonoBehaviour
         {
             firstAttempt = true;
         }
+
+        if (!lt.hasShowedHint)
+        {
+            if (hintBox)
+            {
+                hint.SetActive(true);
+                lt.gameEnded = true;
+                hintTextBox.text = hintText;
+            }
+            else
+            {
+                hint.SetActive(false);
+            }
+
+            lt.hasShowedHint = true;
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +67,12 @@ public class UI : MonoBehaviour
 
             GameObject.Find("Deaths").GetComponent<Text>().text = lt.deathCounter.ToString();
         }
+    }
+
+    public void CloseHint()
+    {
+        hint.SetActive(false);
+        lt.gameEnded = false;
     }
 
     void GameOver()

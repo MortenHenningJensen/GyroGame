@@ -16,6 +16,8 @@ public class LevelTracker : MonoBehaviour
 
     public float totalTimer;
 
+    public bool hasShowedHint;
+
     [SerializeField]
     public List<GameObject> activatedPlates; //List of all plates that has been activated
                                              //Lav array som har en liste med strings (navne på plates), så find elementet med GameObject.Find(arraystring), ved ikke om det vil hjælpe, ellers få Skinke til at kigge på det
