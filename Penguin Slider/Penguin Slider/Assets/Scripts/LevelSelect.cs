@@ -73,9 +73,9 @@ public class LevelSelect : MonoBehaviour
 
         levelInfo.transform.FindChild("YourBestTime").GetComponent<Text>().text = "Your best time: " + PlayerPrefs.GetFloat("bestTime " + obj.GetComponentInChildren<Text>().text).ToString("F2") + " Seconds";
 
-        levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer1").ToString("F2");
-        levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer2").ToString("F2");
-        levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer3").ToString("F2");
+        levelInfo.transform.FindChild("1StarTime").GetComponent<Text>().text = "1 Pebble: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer1").ToString("F0");
+        levelInfo.transform.FindChild("2StarTime").GetComponent<Text>().text = "2 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer2").ToString("F0");
+        levelInfo.transform.FindChild("3StarTime").GetComponent<Text>().text = "3 Pebbles: " + PlayerPrefs.GetFloat(obj.GetComponentInChildren<Text>().text + " Timer3").ToString("F0");
 
         levelInfo.transform.FindChild("BestAttempts").GetComponent<Text>().text = "Best Attempts: " + PlayerPrefs.GetInt("bestAttempts " + obj.GetComponentInChildren<Text>().text);
         levelInfo.transform.FindChild("TotalAttempts").GetComponent<Text>().text = "Total Attempts: " + PlayerPrefs.GetInt("totalAttempts " + obj.GetComponentInChildren<Text>().text);
@@ -129,6 +129,16 @@ public class LevelSelect : MonoBehaviour
         levelInfo.enabled = false;
     }
 
+    public void AreYouSurePrompt(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void AreYouSurePromptNo(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
     private void SetUP()
     {
         foreach (GameObject item in levels)
@@ -149,7 +159,7 @@ public class LevelSelect : MonoBehaviour
 
         foreach (GameObject item in levels)
         {
-            Debug.Log(PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text));
+            //Debug.Log(PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text));
             ////Debug.Log(PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text));
             //if (PlayerPrefs.GetInt("Level " + item.transform.FindChild("Text").GetComponent<Text>().text) >= 0)
             //{
@@ -209,24 +219,78 @@ public class LevelSelect : MonoBehaviour
         GameObject[] hidden = GameObject.FindGameObjectsWithTag("LevelHidden");
         foreach (GameObject hiddenobj in hidden)
         {
-            Debug.Log(hiddenobj.transform.FindChild("Text").GetComponent<Text>().text);
+           // Debug.Log(hiddenobj.transform.FindChild("Text").GetComponent<Text>().text);
             if (PlayerPrefs.GetInt("Hidden " + hiddenobj.transform.FindChild("Text").GetComponent<Text>().text) == 1)
             {
                 hiddenobj.SetActive(true);
-                hiddenobj.transform.FindChild("StarsText").GetComponent<Text>().text = PlayerPrefs.GetInt("Level " + hiddenobj.transform.FindChild("Text").GetComponent<Text>().text).ToString() + " / 3 Stars";
+
+                switch (PlayerPrefs.GetInt("Level " + hiddenobj.transform.FindChild("Text").GetComponent<Text>().text))
+                {
+                    case 0:
+
+                        Color c = hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color;
+                        c.a = 0.4f;
+                        hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color = c;
+
+                        Color v = hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color;
+                        v.a = 0.4f;
+                        hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color = v;
+
+                        Color b = hiddenobj.transform.FindChild("StarThree").GetComponent<Image>().color;
+                        b.a = 0.4f;
+                        hiddenobj.transform.FindChild("StarThree").GetComponent<Image>().color = b;
+
+                        break;
+                    case 1:
+                        Color n = hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color;
+                        n.a = 1f;
+                        hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color = n;
+                        break;
+                    case 2:
+                        Color m = hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color;
+                        m.a = 1f;
+                        hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color = m;
+
+                        Color a = hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color;
+                        a.a = 1f;
+                        hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color = a;
+
+                        break;
+                    case 3:
+                        Color s = hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color;
+                        s.a = 1f;
+                        hiddenobj.transform.FindChild("StarOne").GetComponent<Image>().color = s;
+
+                        Color d = hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color;
+                        d.a = 1f;
+                        hiddenobj.transform.FindChild("StarTwo").GetComponent<Image>().color = d;
+
+                        Color f = hiddenobj.transform.FindChild("StarThree").GetComponent<Image>().color;
+                        f.a = 1f;
+                        hiddenobj.transform.FindChild("StarThree").GetComponent<Image>().color = f;
+
+                        break;
+                    default:
+                        break;
+                }
+
+               // hiddenobj.transform.FindChild("StarsText").GetComponent<Text>().text = PlayerPrefs.GetInt("Level " + hiddenobj.transform.FindChild("Text").GetComponent<Text>().text).ToString() + " / 3 Stars";
 
             }
             else
             {
                 hiddenobj.SetActive(false);
             }
+
         }
 
     }
 
-    public void ResetData()
+    public void ResetData(GameObject obj)
     {
         PlayerPrefs.DeleteAll();
+        obj.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
     public void BacktoMenu()

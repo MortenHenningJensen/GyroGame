@@ -1,0 +1,9 @@
+lastUpgrade=00941
+proj.pluginVersion=0.9.41
+proj.AppId=924105254403
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e924105254403%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.MyFace.YourFace%3c%2fstring%3e%0d%0a++%3c%21--+achievement+Secret+Level+--%3e%0d%0a++%3cstring+name%3d%22achievement_secret_level%22+translatable%3d%22false%22%3eCgkIg8zcx_IaEAIQAA%3c%2fstring%3e%0d%0a++%3c%21--+achievement+Pebble+Collector+--%3e%0d%0a++%3cstring+name%3d%22achievement_pebble_collector%22+translatable%3d%22false%22%3eCgkIg8zcx_IaEAIQAQ%3c%2fstring%3e%0d%0a++%3c%21--+achievement+Ice+Master+--%3e%0d%0a++%3cstring+name%3d%22achievement_ice_master%22+translatable%3d%22false%22%3eCgkIg8zcx_IaEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--+achievement+Sand+Master+--%3e%0d%0a++%3cstring+name%3d%22achievement_sand_master%22+translatable%3d%22false%22%3eCgkIg8zcx_IaEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--+achievement+Test+--%3e%0d%0a++%3cstring+name%3d%22achievement_test%22+translatable%3d%22false%22%3eCgkIg8zcx_IaEAIQBg%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=
+android.SetupDone=true
+and.BundleId=com.MyFace.YourFace

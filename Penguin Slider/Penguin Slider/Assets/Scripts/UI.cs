@@ -19,6 +19,7 @@ public class UI : MonoBehaviour
     public string hintText;
     public GameObject hint;
     public Text hintTextBox;
+    public InGameOptions igo;
 
     // Use this for initialization
     void Start()
@@ -26,6 +27,7 @@ public class UI : MonoBehaviour
         gameOver = false;
         timeLeft = GameObject.Find("GameTracker").GetComponent<LevelTracker>().totalTimer;
         lt = GameObject.Find("GameTracker").GetComponent<LevelTracker>();
+        igo = GameObject.Find("GameHandler").GetComponent<InGameOptions>();
 
         if (PlayerPrefs.GetFloat("bestTime " + SceneManager.GetActiveScene().name) > 0)
         {
@@ -37,7 +39,9 @@ public class UI : MonoBehaviour
             firstAttempt = true;
         }
 
-        if (!lt.hasShowedHint)
+        
+
+        if (!lt.hasShowedHint && !igo.hints)
         {
             if (hintBox)
             {

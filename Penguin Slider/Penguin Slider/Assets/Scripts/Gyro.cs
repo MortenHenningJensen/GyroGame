@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Com.Google.Android.Gms.Games;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,6 +46,7 @@ public class Gyro : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         if (GameObject.Find("CalibrateObject") != null)
         {
             counterPos = GameObject.Find("CalibrateObject").GetComponent<CalibrateCounter>().counterPos;
@@ -59,7 +61,7 @@ public class Gyro : MonoBehaviour
         {
             rb = GetComponent<Rigidbody>();
             type = typetorotate.ball;
-            speed = 22f;
+            speed = 23f;
             isGrounded = true;
             jumpForce = 150f;
         }
@@ -146,12 +148,15 @@ public class Gyro : MonoBehaviour
 
         if (rb.velocity.magnitude > 0)
         {
-            GetComponentInChildren<ParticleSystem>().Play();
+            if (!GetComponentInChildren<ParticleSystem>().isPlaying)
+            {
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
         }
         else
         {
-            //GetComponentInChildren<ParticleSystem>().Stop();
-            GetComponentInChildren<ParticleSystem>().Pause();
+            GetComponentInChildren<ParticleSystem>().Stop();
+            //GetComponentInChildren<ParticleSystem>().Pause();
         }
     }
 

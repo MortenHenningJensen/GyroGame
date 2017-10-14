@@ -25,7 +25,7 @@ public class AdTracker : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (attemptCounter >= 5)
+        if (attemptCounter >= 4)
         {
             attemptCounter = 0;
             Advertisement.Show();            
