@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 711, y: 492}
-  m_MaxSize: {x: 18006, y: 14042}
+  m_MinSize: {x: 713, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 82
+  controlID: 105
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,8 +130,8 @@ MonoBehaviour:
     y: 0
     width: 1591
     height: 947
-  m_MinSize: {x: 434, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 436, y: 492}
+  m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
   controlID: 83
 --- !u!114 &7
@@ -204,8 +204,8 @@ MonoBehaviour:
     y: 0
     width: 342
     height: 477
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -231,8 +231,8 @@ MonoBehaviour:
     y: 477
     width: 1591
     height: 470
-  m_MinSize: {x: 434, y: 271}
-  m_MaxSize: {x: 14004, y: 10021}
+  m_MinSize: {x: 436, y: 271}
+  m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
   controlID: 84
 --- !u!114 &11
@@ -381,7 +381,7 @@ MonoBehaviour:
       width: 3120
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.4
+  m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 1248, y: 449}
@@ -415,14 +415,14 @@ MonoBehaviour:
     width: 1247
     height: 456
   m_SceneLighting: 1
-  lastFramingTime: 3046.392890282051
+  lastFramingTime: 1211.9709613743664
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 812.40424, y: 654.12103, z: -204.57678}
+    m_Target: {x: 275.96976, y: 441.13046, z: 68.07739}
     speed: 2
-    m_Value: {x: 812.40424, y: 654.12103, z: -204.57678}
+    m_Value: {x: 275.96976, y: 441.13046, z: 68.07739}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -445,13 +445,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.15332405, y: 0.013891001, z: -0.002189066, w: -0.9880759}
+    m_Target: {x: -0.012926626, y: 0.053032916, z: -0.00071973534, w: -0.9985089}
     speed: 2
-    m_Value: {x: -0.15332405, y: 0.013891001, z: -0.002189066, w: -0.9880759}
+    m_Value: {x: -0.012926626, y: 0.053032916, z: -0.00071973534, w: -0.9985089}
   m_Size:
-    m_Target: 1338.3893
+    m_Target: 2538.151
     speed: 2
-    m_Value: 1338.3893
+    m_Value: 2538.151
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -599,20 +599,20 @@ MonoBehaviour:
     height: 456
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 0637ffff1c3efffffc41ffffa845ffffeac6ffff38c8ffff42c9ffffe0fbfffff4ffffff000000006e390000aab90000
+    m_SelectedIDs: f6cf0000
+    m_LastClickedID: 53238
+    m_ExpandedIDs: 5e8cffffa090ffffa0bbffff08ddffffe0fbffff000000009239000044c90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: World 1
-      m_OriginalName: World 1
+      m_Name: Penguin Player
+      m_OriginalName: Penguin Player
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 93430
+      m_UserData: 19930
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -689,19 +689,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: F:\Gyro Game Self\Penguin Slider\Penguin Slider
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 622f0000
-    m_LastClickedID: 12130
-    m_ExpandedIDs: 0000000002270000f8280000c82b00001c2c0000622f00006a310000084900000a4900000c4900000e490000ffffff7f
+    m_SelectedIDs: cc2b0000
+    m_LastClickedID: 11212
+    m_ExpandedIDs: 0000000004270000fc280000cc2b0000202c00006a2f00007231000030490000324900003449000036490000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -729,7 +729,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000002270000f8280000c82b00001c2c0000622f00006a310000084900000a4900000c4900000e490000
+    m_ExpandedIDs: 0000000004270000fc280000cc2b0000202c00006a2f00007231000030490000324900003449000036490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -760,18 +760,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: d09401008c250000584200005a420000589100008c2b000000000000bedefeff122b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: InGameOptions
-      m_OriginalName: InGameOptions
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 56670
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
@@ -781,7 +781,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 34}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 165
 --- !u!114 &22
@@ -838,15 +838,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1594
+    x: 1593
     y: 92
-    width: 326
+    width: 327
     height: 926
   m_InitialOpenURL: https://public-cdn.cloud.unity3d.com/editor/production/cloud/hub
   m_GlobalObjectTypeName: 
   m_RegisteredViewURLs:
   - https://public-cdn.cloud.unity3d.com/editor/production/cloud/hub
   - https://public-cdn.cloud.unity3d.com/editor/production/cloud/ads
+  - https://public-cdn.cloud.unity3d.com/editor/production/cloud/analytics
   m_RegisteredViewInstances:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

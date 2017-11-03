@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour {
 
     private void Start()
     {
+
         optionsMenu.enabled = false;
         howToPlay.enabled = false;
 }

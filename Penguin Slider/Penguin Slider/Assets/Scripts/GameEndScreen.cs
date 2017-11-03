@@ -11,6 +11,7 @@ public class GameEndScreen : MonoBehaviour
     public int starsUnlocked;
     //private AdTracker at;
     public Button nextLevel;
+    private AdTracker at;
 
     public Image starOne;
     public Image starTwo;
@@ -18,13 +19,16 @@ public class GameEndScreen : MonoBehaviour
 
     private void Start()
     {
-        //at = GameObject.FindGameObjectWithTag("AdTracker").GetComponent<AdTracker>();
+        
+        at = GameObject.Find("AdTracker").GetComponent<AdTracker>();
         levelCompleted = false;
     //    control = FindObjectOfType<GameControl>();
     }
 
     public void BackToMenu()
     {
+        at.attemptCounter += 5;
+
         if (Time.timeScale != 1)
         {
             Time.timeScale = 1;
@@ -54,6 +58,9 @@ public class GameEndScreen : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+        at.attemptCounter += 5;
+
         Destroy(GameObject.Find("GameTracker"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
@@ -66,6 +73,8 @@ public class GameEndScreen : MonoBehaviour
 
     public void PlayNextLevel()
     {
+        at.attemptCounter += 5;
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         Destroy(GameObject.Find("GameTracker"));
