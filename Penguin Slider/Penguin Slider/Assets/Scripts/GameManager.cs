@@ -475,12 +475,14 @@ public class GameManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    end.starOne.GetComponent<Animation>().Play();
                     break;
                 case 1:
-                    end.starTwo.GetComponent<Animation>().Play();
+                    end.starOne.GetComponent<Animation>().Play();
                     break;
                 case 2:
+                    end.starTwo.GetComponent<Animation>().Play();
+                    break;
+                case 3:
                     end.starThree.GetComponent<Animation>().Play();
                     break;
             }

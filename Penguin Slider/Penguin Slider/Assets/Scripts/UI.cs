@@ -124,4 +124,14 @@ public class UI : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void AreYouSurePrompt(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void AreYouSurePromptNo(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
 }

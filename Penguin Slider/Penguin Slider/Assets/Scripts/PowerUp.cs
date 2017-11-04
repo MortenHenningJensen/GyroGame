@@ -12,17 +12,17 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
-        //if (powerType == PowerType.GoldenEgg)
-        //{
-        //    if (PlayerPrefs.GetInt("Level " + SceneManager.GetActiveScene().name) >= 3)
-        //    {
-        //        transform.gameObject.SetActive(true);
-        //    }
-        //    else
-        //    {
-        //        transform.gameObject.SetActive(false);
-        //    }
-        //}
+        if (powerType == PowerType.GoldenEgg)
+        {
+            if (PlayerPrefs.GetInt("Level " + SceneManager.GetActiveScene().name) >= 3)
+            {
+                transform.gameObject.SetActive(true);
+            }
+            else
+            {
+                transform.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void Update()

@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
     public Button worldEightbtn;
     public Button worldSand;
 
+    public GameObject desertPrompt;
+
     void Awake()
     {
         if (PlayerPrefs.GetInt("lvl 2-1") == 1)
@@ -75,7 +77,7 @@ public class MainMenu : MonoBehaviour
 
     }
 
-#region Ice Levels
+    #region Ice Levels
 
     public void EnterWorldOne()
     {
@@ -105,7 +107,7 @@ public class MainMenu : MonoBehaviour
         worldSelectIce.enabled = false;
     }
 
-#endregion
+    #endregion
 
     public void EnterWorldFive()
     {
@@ -144,13 +146,14 @@ public class MainMenu : MonoBehaviour
 
     public void EnterSandWorlds()
     {
-        worldSelectSand.enabled = true;
+        worldSelectSand.enabled = true;    
 
         worldSelect.enabled = false;
     }
 
     public void BackButton()
     {
+        desertPrompt.SetActive(false);
         worldOne.enabled = false;
         worldTwo.enabled = false;
         worldThree.enabled = false;
@@ -161,6 +164,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackButtonSand()
     {
+        desertPrompt.SetActive(false);
         worldFive.enabled = false;
         worldSix.enabled = false;
         worldSeven.enabled = false;
@@ -171,6 +175,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackToWorldSelect()
     {
+        desertPrompt.SetActive(false);
         worldSelectIce.enabled = false;
         worldSelectSand.enabled = false;
 

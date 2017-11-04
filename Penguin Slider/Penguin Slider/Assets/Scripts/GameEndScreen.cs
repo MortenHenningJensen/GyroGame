@@ -113,4 +113,19 @@ public class GameEndScreen : MonoBehaviour
 
         SceneManager.LoadScene("Level Select");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void AreYouSurePrompt(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void AreYouSurePromptNo(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
 }
