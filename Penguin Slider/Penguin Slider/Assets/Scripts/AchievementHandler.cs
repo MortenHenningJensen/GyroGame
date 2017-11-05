@@ -39,6 +39,7 @@ public class AchievementHandler : MonoBehaviour {
     {
         PlayGamesScript.UnlockAchievement(GPGSIds.achievement_this_is_not_fair);
     }
+
     //GIVEN WHEN PLAYER COMPLETES A SECRET LEVEL
     public void SecretDone()
     {

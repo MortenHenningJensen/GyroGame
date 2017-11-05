@@ -424,6 +424,10 @@ public class GameManager : MonoBehaviour
             betterAttempts.GetComponent<Animator>().enabled = true;
         }
 
+        if (lt.deathCounter >= 50)
+        {
+            GameObject.Find("GameHandler").GetComponent<AchievementHandler>().NotFair();
+        }
         //int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + lt.deathCounter;
 
         //PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
@@ -436,6 +440,10 @@ public class GameManager : MonoBehaviour
 
         if (_ui.timeLeft < threeStar)
         {
+            if (PlayerPrefs.GetInt("Level " + SceneManager.GetActiveScene().name) != 3)
+            {
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().ThreePebbleProgress();
+            }
             starsToGive = 3;
         }
         else if (_ui.timeLeft < twoStar)
@@ -452,8 +460,6 @@ public class GameManager : MonoBehaviour
             starsToGive = 0;
         }
 
-
-
         Text endStarsText = GameObject.Find("StarsEarned").GetComponent<Text>();
         endStarsText.text = "You Earned: " + starsToGive.ToString() + " Pebbles!";
 
@@ -463,9 +469,6 @@ public class GameManager : MonoBehaviour
         at.attemptCounter++;
 
 
-        //1. Load animation for switching levels
-        //2. Pop-up with status screen (Time, Re-tries)
-        //3. Buttons, "Main Menu", "Share Result", "Re-try","Next Level"
     }
 
     IEnumerator StarsAnimaion(GameEndScreen end)

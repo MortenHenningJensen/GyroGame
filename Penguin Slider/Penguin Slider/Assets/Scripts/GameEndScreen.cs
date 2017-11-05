@@ -12,6 +12,7 @@ public class GameEndScreen : MonoBehaviour
     //private AdTracker at;
     public Button nextLevel;
     private AdTracker at;
+    private int hiddenComplete;
 
     public Image starOne;
     public Image starTwo;
@@ -98,6 +99,61 @@ public class GameEndScreen : MonoBehaviour
         string sceneName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
 
         PlayerPrefs.SetInt("lvl " + sceneName, 1);
+
+        switch (level)
+        {
+            case "4-9":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().IceMasterDone();
+                break;
+            case "8-9":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SandMasterDone();
+                break;
+            case "1-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "2-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "3-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "4-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "5-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "6-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "7-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "8-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+            case "9-Hidden":
+                GameObject.Find("GameHandler").GetComponent<AchievementHandler>().SecretDone();
+                break;
+        }
+
+        hiddenComplete = 0;
+        for (int i = 1; i < 9; i++)
+        {
+            if (PlayerPrefs.GetInt("lvl " + i + "-Hidden") == 1)
+            {
+                hiddenComplete++;
+            }
+        }
+
+        if (hiddenComplete == 9)
+        {
+            GameObject.Find("GameHandler").GetComponent<AchievementHandler>().NoSecret();
+        }
+        else
+        {
+            hiddenComplete = 0;
+        }
     }
 
     public void CheatMode()

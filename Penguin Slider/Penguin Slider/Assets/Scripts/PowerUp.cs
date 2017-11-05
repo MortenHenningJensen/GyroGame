@@ -47,7 +47,7 @@ public class PowerUp : MonoBehaviour
                     break;
                 case PowerType.GoldenEgg:
                     PlayerPrefs.SetInt("Hidden " + levelToUnlock, 1);
-                    Debug.Log(PlayerPrefs.GetInt("Hidden " + levelToUnlock, 1));
+                    GameObject.Find("GameHandler").GetComponent<AchievementHandler>().UnlockFirstHidden();
                     break;
             }
 

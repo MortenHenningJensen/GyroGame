@@ -139,6 +139,11 @@ public class LevelSelect : MonoBehaviour
         obj.SetActive(false);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     private void SetUP()
     {
         foreach (GameObject item in levels)
