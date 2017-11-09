@@ -14,9 +14,9 @@ public class AdTracker : MonoBehaviour {
     void Start () {
 
         //ACTUAL ID TO USE WHEN READY
-        //string appId = "ca-app-pub-8528536622826454~8644572820";
+        string appId = "ca-app-pub-8528536622826454~8644572820";
 
-        string appId = "ca-app-pub-3940256099942544~3347511713";
+        //string appId = "ca-app-pub-3940256099942544~3347511713";
         MobileAds.Initialize(appId);
 
         if (instanceRef == null)
@@ -44,9 +44,9 @@ public class AdTracker : MonoBehaviour {
     public void RequestInterstitial()
     {
         //ACTUAL ID TO USE WHEN READY
-        //string adUnitId = "ca-app-pub-8528536622826454/5443694412";
+        string adUnitId = "ca-app-pub-8528536622826454/5443694412";
 
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        //string adUnitId = "ca-app-pub-3940256099942544/1033173712";
         // Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
 

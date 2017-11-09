@@ -17,6 +17,7 @@ public class ResetBox : MonoBehaviour {
         if (collision.transform.tag == "Ball")
         {
             lt.AddDeath();
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioDie.Play();
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

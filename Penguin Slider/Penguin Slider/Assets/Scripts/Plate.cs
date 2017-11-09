@@ -366,6 +366,7 @@ public class Plate : MonoBehaviour
                 }
                 else if (this._actPlaState == ActivationPlateState.On)
                 {
+                    GameObject.Find("GameHandler").GetComponent<SoundController>().audioActivationPlate.Play();
                     ChangeLight();
                     if (gm.tog != TypeOfGame.Normal)
                     {
@@ -378,6 +379,7 @@ public class Plate : MonoBehaviour
             if (this.TypeNumb == PlateType.GoalPlate && gm.CanEnd && !gm.ended)
             {
                 //KØRER DET IGENNEM 2 GANGE, LAV BOOL PÅ CHECK?
+                GameObject.Find("GameHandler").GetComponent<SoundController>().audioCelebration.Play();
                 gm.EndStatus();
             }
 
@@ -416,6 +418,7 @@ public class Plate : MonoBehaviour
         {
             if (this.TypeNumb == PlateType.QuickSand)
             {
+                GameObject.Find("GameHandler").GetComponent<SoundController>().audioQuicksandGone.Play();
                 this.gameObject.SetActive(false);
             }
         }

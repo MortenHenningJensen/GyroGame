@@ -47,6 +47,7 @@ public class PowerUp : MonoBehaviour
                     break;
                 case PowerType.GoldenEgg:
                     PlayerPrefs.SetInt("Hidden " + levelToUnlock, 1);
+                    GameObject.Find("GameHandler").GetComponent<SoundController>().audioGoldenNug.Play();
                     GameObject.Find("GameHandler").GetComponent<AchievementHandler>().UnlockFirstHidden();
                     break;
             }

@@ -22,6 +22,8 @@ public class BounceAnimator : MonoBehaviour
         if (collision.transform.tag == "Ball")
         {
             GetComponent<Animation>().Play();
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioHitBounce.Play();
+
         }
     }
 }

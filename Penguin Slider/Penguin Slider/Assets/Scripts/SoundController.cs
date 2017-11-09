@@ -16,31 +16,38 @@ public class SoundController : MonoBehaviour
     public AudioClip quicksandGone;
     public AudioClip wallHit;
     public AudioClip jump;
+    public AudioClip menuInteraction;
+    public AudioClip goldenNug;
 
-    private AudioSource audioSlide;
-    private AudioSource audioDie;
-    private AudioSource audioHitBounce;
-    private AudioSource audioUnlockStars;
-    private AudioSource audioCelebration;
-    private AudioSource audioActivationPlate;
-    private AudioSource audioGoalUnlock;
-    private AudioSource audioQuicksandGone;
-    private AudioSource audioWallHit;
-    private AudioSource audioJump;
+    public AudioSource audioSlide;
+    public AudioSource audioDie;
+    public AudioSource audioHitBounce;
+    public AudioSource audioUnlockStars;
+    public AudioSource audioCelebration;
+    public AudioSource audioActivationPlate;
+    public AudioSource audioGoalUnlock;
+    public AudioSource audioQuicksandGone;
+    public AudioSource audioWallHit;
+    public AudioSource audioJump;
+    public AudioSource audioMenuInteraction;
+    public AudioSource audioGoldenNug;
+
 
     public void Awake()
     {
         // add the necessary AudioSources:
-        audioSlide = AddAudio(slide, true, true, 0.2f);
-        audioDie = AddAudio(die, true, true, 0.4f);
-        audioHitBounce = AddAudio(hitBounce, false, false, 0.8f);
-        audioUnlockStars = AddAudio(unlockStars, false, false, 0.8f);
-        audioCelebration = AddAudio(slide, true, true, 0.2f);
-        audioActivationPlate = AddAudio(die, true, true, 0.4f);
-        audioGoalUnlock = AddAudio(hitBounce, false, false, 0.8f);
-        audioQuicksandGone = AddAudio(unlockStars, false, false, 0.8f);
-        audioWallHit = AddAudio(slide, true, true, 0.2f);
-        audioJump = AddAudio(die, true, true, 0.4f);
+        audioSlide = AddAudio(slide, true, false, 2f);
+        audioDie = AddAudio(die, false, false, 1f);
+        audioHitBounce = AddAudio(hitBounce, false, false, 1f);
+        audioUnlockStars = AddAudio(unlockStars, false, false, 1f);
+        audioCelebration = AddAudio(celebration, false, false, 0.1f);
+        audioActivationPlate = AddAudio(activationPlate, true, false, 1f);
+        audioGoalUnlock = AddAudio(goalUnlock, false, false, 1f);
+        audioQuicksandGone = AddAudio(quicksandGone, false, false, 1f);
+        audioWallHit = AddAudio(wallHit, false, false, 2f);
+        audioJump = AddAudio(jump, false, false, 1f);
+        audioMenuInteraction = AddAudio(menuInteraction, false, false, 1f);
+        audioGoldenNug = AddAudio(goldenNug, false, false, 1f);
     }
 
 

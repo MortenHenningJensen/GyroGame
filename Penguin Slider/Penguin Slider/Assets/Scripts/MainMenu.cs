@@ -81,6 +81,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldOne()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldOne.enabled = true;
 
         worldSelectIce.enabled = false;
@@ -88,6 +90,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldTwo()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldTwo.enabled = true;
 
         worldSelectIce.enabled = false;
@@ -95,6 +99,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldThree()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldThree.enabled = true;
 
         worldSelectIce.enabled = false;
@@ -102,6 +108,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldFour()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldFour.enabled = true;
 
         worldSelectIce.enabled = false;
@@ -111,6 +119,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldFive()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldFive.enabled = true;
 
         worldSelectSand.enabled = false;
@@ -118,6 +128,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldSix()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldSix.enabled = true;
 
         worldSelectSand.enabled = false;
@@ -125,6 +137,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldSeven()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldSeven.enabled = true;
 
         worldSelectSand.enabled = false;
@@ -132,6 +146,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterWorldEight()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldEight.enabled = true;
 
         worldSelectSand.enabled = false;
@@ -139,6 +155,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterIceWorlds()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldSelectIce.enabled = true;
 
         worldSelect.enabled = false;
@@ -146,6 +164,8 @@ public class MainMenu : MonoBehaviour
 
     public void EnterSandWorlds()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         worldSelectSand.enabled = true;    
 
         worldSelect.enabled = false;
@@ -153,6 +173,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackButton()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         desertPrompt.SetActive(false);
         worldOne.enabled = false;
         worldTwo.enabled = false;
@@ -164,6 +186,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackButtonSand()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         desertPrompt.SetActive(false);
         worldFive.enabled = false;
         worldSix.enabled = false;
@@ -175,6 +199,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackToWorldSelect()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         desertPrompt.SetActive(false);
         worldSelectIce.enabled = false;
         worldSelectSand.enabled = false;
@@ -184,6 +210,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         SceneManager.LoadScene(0);
     }
 }

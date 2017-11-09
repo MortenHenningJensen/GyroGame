@@ -151,11 +151,13 @@ public class Gyro : MonoBehaviour
             if (!GetComponentInChildren<ParticleSystem>().isPlaying)
             {
                 GetComponentInChildren<ParticleSystem>().Play();
+                GameObject.Find("GameHandler").GetComponent<SoundController>().audioSlide.Play();
             }
         }
         else
         {
             GetComponentInChildren<ParticleSystem>().Stop();
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioSlide.Stop();
             //GetComponentInChildren<ParticleSystem>().Pause();
         }
     }
@@ -187,6 +189,7 @@ public class Gyro : MonoBehaviour
         if (isGrounded)
         {
             Debug.Log("JUMP");
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioJump.Play();
             rb.AddForce(Vector3.up * jumpForce);
             isGrounded = false;
         }
@@ -197,8 +200,10 @@ public class Gyro : MonoBehaviour
         if (collision.transform.tag == "Wall")
         {
             GetComponent<Animation>().Play();
-            //Handheld.Vibrate();
-            //Debug.Log("VIBRATE");
+            Random rnd = new Random();
+            int pitch = Random.Range(80, 120);
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioWallHit.pitch = pitch;
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioWallHit.Play();
         }
 
         if (collision.transform.tag == "Plate" || collision.transform.tag == "MovingPlatform")

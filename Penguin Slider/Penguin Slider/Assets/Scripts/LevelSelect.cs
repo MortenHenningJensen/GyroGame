@@ -64,6 +64,7 @@ public class LevelSelect : MonoBehaviour
 
     public void InfoCanvas(GameObject obj)
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
         levelInfo.enabled = true;
         levelToEnterName = obj.GetComponentInChildren<Text>().text;
         levelInfo.GetComponentInChildren<Text>().text = PlayerPrefs.GetString(obj.GetComponentInChildren<Text>().text + "Title");
@@ -131,11 +132,13 @@ public class LevelSelect : MonoBehaviour
 
     public void AreYouSurePrompt(GameObject obj)
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
         obj.SetActive(true);
     }
 
     public void AreYouSurePromptNo(GameObject obj)
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
         obj.SetActive(false);
     }
 

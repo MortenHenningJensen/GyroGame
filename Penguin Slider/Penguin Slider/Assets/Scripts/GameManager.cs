@@ -257,6 +257,8 @@ public class GameManager : MonoBehaviour
         {
             CanEnd = true; //changes the bool to true, so the game can End.. Disables Plate.ChangeLights()..
 
+            GameObject.Find("GameHandler").GetComponent<SoundController>().audioGoalUnlock.Play();
+
             foreach (GameObject pl in goalPlate)
             {
                 //Change material on the GoalPlate..
@@ -481,12 +483,18 @@ public class GameManager : MonoBehaviour
                     break;
                 case 1:
                     end.starOne.GetComponent<Animation>().Play();
+                    GameObject.Find("GameHandler").GetComponent<SoundController>().audioUnlockStars.Play();
+
                     break;
                 case 2:
                     end.starTwo.GetComponent<Animation>().Play();
+                    GameObject.Find("GameHandler").GetComponent<SoundController>().audioUnlockStars.Play();
+
                     break;
                 case 3:
                     end.starThree.GetComponent<Animation>().Play();
+                    GameObject.Find("GameHandler").GetComponent<SoundController>().audioUnlockStars.Play();
+
                     break;
             }
             yield return new WaitForSeconds(1);

@@ -16,12 +16,12 @@ public class PlayGamesScript : MonoBehaviour
         PlayGamesPlatform.Activate();
 
         SignIn();
-        Debug.Log("LOGIN SUCCESS!");
+        
     }
 
     void SignIn()
     {
-        Social.localUser.Authenticate(success => { });
+        Social.localUser.Authenticate(success => { Debug.Log("LOGIN SUCCESS!"); });
     }
 
     #region Achivements
