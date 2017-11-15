@@ -110,12 +110,16 @@ public class UI : MonoBehaviour
 
     public void Pause()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         Time.timeScale = 0;
         pauseMenu.enabled = true;
     }
 
     public void ResumeGame()
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         Time.timeScale = 1;
         pauseMenu.enabled = false;
     }
@@ -127,11 +131,15 @@ public class UI : MonoBehaviour
 
     public void AreYouSurePrompt(GameObject obj)
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         obj.SetActive(true);
     }
 
     public void AreYouSurePromptNo(GameObject obj)
     {
+        GameObject.Find("GameHandler").GetComponent<SoundController>().audioMenuInteraction.Play();
+
         obj.SetActive(false);
     }
 }

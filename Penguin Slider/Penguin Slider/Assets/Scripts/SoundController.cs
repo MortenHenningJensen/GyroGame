@@ -18,6 +18,7 @@ public class SoundController : MonoBehaviour
     public AudioClip jump;
     public AudioClip menuInteraction;
     public AudioClip goldenNug;
+    public AudioClip checkPoint;
 
     public AudioSource audioSlide;
     public AudioSource audioDie;
@@ -31,23 +32,26 @@ public class SoundController : MonoBehaviour
     public AudioSource audioJump;
     public AudioSource audioMenuInteraction;
     public AudioSource audioGoldenNug;
+    public AudioSource audioCheckPoint;
 
 
     public void Awake()
     {
         // add the necessary AudioSources:
-        audioSlide = AddAudio(slide, true, false, 2f);
-        audioDie = AddAudio(die, false, false, 1f);
+        audioSlide = AddAudio(slide, true, false, 8f);
+        audioDie = AddAudio(die, false, false, 0.5f);
         audioHitBounce = AddAudio(hitBounce, false, false, 1f);
         audioUnlockStars = AddAudio(unlockStars, false, false, 1f);
         audioCelebration = AddAudio(celebration, false, false, 0.1f);
-        audioActivationPlate = AddAudio(activationPlate, true, false, 1f);
+        audioActivationPlate = AddAudio(activationPlate, false, false, 1f);
         audioGoalUnlock = AddAudio(goalUnlock, false, false, 1f);
         audioQuicksandGone = AddAudio(quicksandGone, false, false, 1f);
-        audioWallHit = AddAudio(wallHit, false, false, 2f);
-        audioJump = AddAudio(jump, false, false, 1f);
+        audioWallHit = AddAudio(wallHit, false, false, 1f);
+        audioJump = AddAudio(jump, false, false, 0.5f);
         audioMenuInteraction = AddAudio(menuInteraction, false, false, 1f);
         audioGoldenNug = AddAudio(goldenNug, false, false, 1f);
+        audioCheckPoint = AddAudio(checkPoint, false, false, 1f);
+
     }
 
 

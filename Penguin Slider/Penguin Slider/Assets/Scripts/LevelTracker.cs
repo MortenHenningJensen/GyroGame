@@ -31,6 +31,11 @@ public class LevelTracker : MonoBehaviour
         findOnce = false;
         hasCheckPoint = false;
 
+        int startAttempt = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + 1;
+
+        PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, startAttempt);
+
+
         if (instanceRef == null)
         {
             instanceRef = this;
@@ -74,6 +79,8 @@ public class LevelTracker : MonoBehaviour
         int attemptAdder = PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + 1;
 
         PlayerPrefs.SetInt("totalAttempts " + SceneManager.GetActiveScene().name, attemptAdder);
+
+        Debug.Log(attemptAdder + "attempts to add, " + PlayerPrefs.GetInt("totalAttempts " + SceneManager.GetActiveScene().name) + " totalattempts");
     }
 
 }

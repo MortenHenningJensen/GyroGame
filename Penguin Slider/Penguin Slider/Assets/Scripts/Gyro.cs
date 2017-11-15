@@ -201,7 +201,7 @@ public class Gyro : MonoBehaviour
         {
             GetComponent<Animation>().Play();
             Random rnd = new Random();
-            int pitch = Random.Range(80, 120);
+            int pitch = Random.Range(1, 5);
             GameObject.Find("GameHandler").GetComponent<SoundController>().audioWallHit.pitch = pitch;
             GameObject.Find("GameHandler").GetComponent<SoundController>().audioWallHit.Play();
         }

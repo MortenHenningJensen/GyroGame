@@ -49,7 +49,10 @@ public class GameEndScreen : MonoBehaviour
     {
         if (levelCompleted == true)
         {
-            nextLevel.interactable = true;
+            if (!SceneManager.GetActiveScene().name.Contains("-Hidden"))
+            {
+                nextLevel.interactable = true;
+            }
         }
     }
 

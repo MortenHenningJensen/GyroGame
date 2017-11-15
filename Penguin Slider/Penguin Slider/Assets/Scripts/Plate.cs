@@ -307,6 +307,7 @@ public class Plate : MonoBehaviour
     {
         if (!gm.CanEnd) //If the game hasn't ended yet..
         {
+
             _light = !_light; //Switched the current light to the opposite
             if (_light)
             {
@@ -358,8 +359,9 @@ public class Plate : MonoBehaviour
 
         if (ballCol == GameObject.FindGameObjectWithTag("Ball").GetComponent<Collider>())
         {
-            if (this.TypeNumb == PlateType.ActivationPlate && !gm.CanEnd)
+            if (this.TypeNumb == PlateType.ActivationPlate && !gm.CanEnd && this._light == false)
             {
+
                 if (this._actPlaState == ActivationPlateState.Off)
                 {
                     Debug.Log("Can't turn this on right now..");
@@ -367,6 +369,7 @@ public class Plate : MonoBehaviour
                 else if (this._actPlaState == ActivationPlateState.On)
                 {
                     GameObject.Find("GameHandler").GetComponent<SoundController>().audioActivationPlate.Play();
+
                     ChangeLight();
                     if (gm.tog != TypeOfGame.Normal)
                     {
@@ -386,6 +389,8 @@ public class Plate : MonoBehaviour
             if (this.TypeNumb == PlateType.CheckPoint)
             {
                 lt.totalTimer = GameObject.Find("UI").GetComponent<UI>().timeLeft;
+
+                GameObject.Find("GameHandler").GetComponent<SoundController>().audioCheckPoint.Play();
 
                 //KOLLIDERER MED DET SAMME, SÅ DEN ADDER DEM TIL LISTEN IGEN
                 lt.hasCheckPoint = true;

@@ -39,7 +39,6 @@ public class PlayGamesScript : MonoBehaviour
 
     public void ShowAchievementUI()
     {
-        Debug.Log("Opening Achi UI");
         Social.ShowAchievementsUI();
     }
     #endregion

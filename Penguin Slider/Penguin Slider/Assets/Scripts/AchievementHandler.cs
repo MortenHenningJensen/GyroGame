@@ -7,7 +7,7 @@ public class AchievementHandler : MonoBehaviour {
     //GIVEN WHEN PLAYER COLLECTS GOLDEN NUGGET
     public void UnlockFirstHidden()
     {
-        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_complete_a_hidden_level);
+        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_secret_level);
     }
 
     //GIVEN WHEN A PLAYER COMPLETES A LEVEL TO A 3 STAR RATING
@@ -43,6 +43,6 @@ public class AchievementHandler : MonoBehaviour {
     //GIVEN WHEN PLAYER COMPLETES A SECRET LEVEL
     public void SecretDone()
     {
-        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_secret_level);
+        PlayGamesScript.UnlockAchievement(GPGSIds.achievement_complete_a_hidden_level);
     }
 }

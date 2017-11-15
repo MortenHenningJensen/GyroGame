@@ -19,6 +19,8 @@ public class AdTracker : MonoBehaviour {
         //string appId = "ca-app-pub-3940256099942544~3347511713";
         MobileAds.Initialize(appId);
 
+        RequestInterstitial();
+
         if (instanceRef == null)
         {
             instanceRef = this;
@@ -36,7 +38,6 @@ public class AdTracker : MonoBehaviour {
         if (attemptCounter >= 10)
         {
             attemptCounter = 0;
-            RequestInterstitial();
             ShowInterstitial();
         }
     }
